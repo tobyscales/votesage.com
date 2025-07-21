@@ -23,7 +23,7 @@ jobs:
           node-version: '20' # Specify your Node.js version
 
       # 3. Installs your project dependencies from package.json
-      #- name: Install dependencies
+      - name: Install dependencies
         run: npm ci
 
       # 4. Runs the Tailwind CSS build command for production
