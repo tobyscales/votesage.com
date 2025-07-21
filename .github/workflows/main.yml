@@ -24,7 +24,7 @@ jobs:
 
       # 3. Installs your project dependencies from package.json
       #- name: Install dependencies
-      #  run: npm ci
+        run: npm ci
 
       # 4. Runs the Tailwind CSS build command for production
       - name: Build Tailwind CSS
