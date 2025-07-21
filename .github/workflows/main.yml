@@ -5,7 +5,7 @@ name: Build Tailwind CSS
 on:
   push:
     branches:
-      - gh-pages # Or whichever branch you want to build from
+      - main # Or whichever branch you want to build from
 
 jobs:
   build:
