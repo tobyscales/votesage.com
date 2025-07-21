@@ -48,6 +48,10 @@
             padding: 0;
             max-width: none;
         }
+      /* This CSS hides the honeypot field */
+      .honeypot-field {
+        display: none;
+      }
     </style>
 </head>
 <body class="text-gray-800">
@@ -154,9 +158,15 @@
             <h2 class="text-3xl font-bold text-blue-800 mb-6">Get Involved</h2>
             <p class="text-gray-600 mb-8 text-center">Your voice, your time, and your support make all the difference. Here's how you can join the campaign.</p>
             <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- modify this form HTML as you wish and place wherever you want your form -->
                 <div>
                     <h3 class="text-xl font-bold text-blue-700 mb-4">Send Us a Message</h3>
-                    <form onsubmit="event.preventDefault(); alert('Thank you for your message!');">
+                    <form 
+                        action="https://formcarry.com/s/zZeaB_foSML"
+                        method="POST"
+                        enctype="multipart/form-data"
+                        onsubmit="event.preventDefault(); alert('Thank you for your message!');">
                         <div class="mb-4">
                             <label for="name" class="block text-gray-700 font-medium mb-1">Full Name</label>
                             <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required>
@@ -169,6 +179,10 @@
                             <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
                             <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
                         </div>
+                          <div class="honeypot-field">
+                            <label for="honeypot">Don't fill this out if you're human:</label>
+                            <input type="text" id="honeypot" name="honeypot">
+                          </div>
                         <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Submit</button>
                     </form>
                 </div>
