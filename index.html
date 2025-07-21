@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Candidate Name | Political Campaign</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        
+        /* Main body layout */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Sticky Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        /* 1. FIX: Main content is now a flex container for its children */
+        #page-content {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 2. FIX: Hero section now uses flex-grow to fill space reliably */
+        .hero-section {
+            flex-grow: 1;
+        }
+        
+        /* Adjust main content container for the hero section page */
+        main.is-home {
+            padding: 0;
+            max-width: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header id="main-header" class="bg-white shadow-md">
+        <a href="#home" id="header-link" class="block cursor-pointer py-4 px-4 md:px-8">
+            <div class="container mx-auto grid grid-cols-2 md:grid-cols-3 items-center">
+                <h1 class="text-2xl md:text-3xl font-bold text-blue-800 col-span-1">Your Candidate Name</h1>
+                <div class="col-span-1 text-center">
+                    <p class="text-gray-500 font-semibold uppercase tracking-widest hidden md:block">For a Better Tomorrow</p>
+                </div>
+                <div class="col-span-1"></div> </div>
+        </a>
+    </header>
+
+    <main id="page-content" class="container mx-auto p-4 md:p-8">
+        </main>
+
+    <footer class="bg-gray-800 text-white p-4 z-50">
+        <nav class="container mx-auto flex justify-center items-center space-x-4 md:space-x-8">
+            <a href="#about" class="nav-link hover:text-blue-300 transition duration-300 font-medium">About</a>
+            <a href="#platform" class="nav-link hover:text-blue-300 transition duration-300 font-medium">Platform</a>
+            <a href="#contact" class="nav-link hover:text-blue-300 transition duration-300 font-medium">Contact</a>
+        </nav>
+    </footer>
+
+    <template id="template-home">
+        <div class="relative hero-section bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/667eea/ffffff?text=');">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20"></div>
+            <div class="relative h-full flex justify-center md:justify-end items-center text-center md:text-left">
+                <div class="w-full md:w-1/2 p-8 md:p-16">
+                     <p class="text-2xl md:text-3xl text-white font-light leading-relaxed">
+                        Hi! I'm <span class="font-bold">[Candidate Name]</span>, a nominee for <span class="font-bold">[Office]</span>. I believe in creating a community where every voice is heard and every family has the opportunity to thrive. My focus is on practical solutions for economic growth, stronger schools, and accessible healthcare for all. Let's work together to build a better future for our district.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-about">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-6">About the Candidate</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="w-full md:w-1/3">
+                    <img src="https://placehold.co/400x400/e2e8f0/333333?text=Candidate" alt="Candidate Portrait" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <p class="text-gray-600 mb-4">
+                        [Candidate Name] has been a dedicated public servant and community advocate for over 20 years. Born and raised in this district, they understand the challenges and opportunities we face. With a background in local government and a passion for grassroots organizing, [Candidate Name] has a proven track record of fighting for working families, improving public education, and protecting our environment.
+                    </p>
+                    <p class="text-gray-600">
+                        Their mission is to build a more inclusive and prosperous community where everyone has the opportunity to succeed. This campaign is about listening to you and bringing your voice to the forefront of policy-making.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="template-platform">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center">Our Platform: Key Issues</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Economic Opportunity</h3>
+                    <p class="text-gray-600">Fostering small business growth, creating well-paying jobs, and ensuring a fair economy for everyone.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Education</h3>
+                    <p class="text-gray-600">Investing in our public schools, supporting our teachers, and making higher education more affordable.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Healthcare</h3>
+                    <p class="text-gray-600">Working to lower healthcare costs and ensure every citizen has access to quality medical care.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Environmental Protection</h3>
+                    <p class="text-gray-600">Championing clean energy, conserving our natural resources, and combating climate change.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Infrastructure</h3>
+                    <p class="text-gray-600">Modernizing our roads, bridges, and public transit to build a stronger foundation for the future.</p>
+                </div>
+                 <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Public Safety</h3>
+                    <p class="text-gray-600">Ensuring our communities are safe through smart, effective, and equitable public safety policies.</p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="template-contact">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-6">Get Involved</h2>
+            <p class="text-gray-600 mb-8 text-center">Your voice, your time, and your support make all the difference. Here's how you can join the campaign.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">Send Us a Message</h3>
+                    <form onsubmit="event.preventDefault(); alert('Thank you for your message!');">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Submit</button>
+                    </form>
+                </div>
+                <div>
+                     <h3 class="text-xl font-bold text-blue-700 mb-4">Follow Us</h3>
+                     <div class="flex space-x-4">
+                        <a href="#" class="text-blue-600 hover:text-blue-800">Twitter</a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800">Facebook</a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800">Instagram</a>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <script>
+        const pageContent = document.getElementById('page-content');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const headerLink = document.getElementById('header-link');
+
+        // Page Content Templates
+        const pages = {
+            home: document.getElementById('template-home').innerHTML,
+            about: document.getElementById('template-about').innerHTML,
+            platform: document.getElementById('template-platform').innerHTML,
+            contact: document.getElementById('template-contact').innerHTML,
+        };
+
+        // --- Routing and Page Loading ---
+        function loadPage(page) {
+            pageContent.style.animation = 'fadeOut 0.3s ease-in-out';
+            
+            // 3. FIX: Logic is now inside the timeout for a smoother transition
+            setTimeout(() => {
+                // Special styling for the homepage to allow full-width hero
+                if (page === 'home') {
+                    pageContent.classList.add('is-home');
+                    pageContent.classList.remove('container', 'mx-auto', 'p-4', 'md:p-8');
+                } else {
+                    pageContent.classList.remove('is-home');
+                    pageContent.classList.add('container', 'mx-auto', 'p-4', 'md:p-8');
+                }
+
+                pageContent.innerHTML = pages[page] || pages['home'];
+                pageContent.style.animation = 'fadeIn 0.5s ease-in-out';
+                updateActiveLink(page);
+                window.scrollTo(0, 0); // Scroll to top on page change
+            }, 300); // This duration should match the fadeOut animation time
+        }
+        
+        function updateActiveLink(activePage) {
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href').substring(1);
+                if (linkPage === activePage) {
+                    link.classList.add('text-blue-300', 'font-bold');
+                    link.classList.remove('text-white');
+                    link.setAttribute('aria-current', 'page');
+                } else {
+                    link.classList.remove('text-blue-300', 'font-bold');
+                    link.classList.add('text-white');
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        function handleNav(e) {
+            e.preventDefault();
+            const page = e.currentTarget.getAttribute('href').substring(1);
+            history.pushState({page}, page, `#${page}`);
+            loadPage(page);
+        }
+
+        // --- Event Listeners ---
+        navLinks.forEach(link => {
+            link.addEventListener('click', handleNav);
+        });
+
+        headerLink.addEventListener('click', handleNav);
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', (e) => {
+            const page = e.state ? e.state.page : 'home';
+            loadPage(page);
+        });
+
+        // --- Initial Page Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialPage = window.location.hash ? window.location.hash.substring(1) : 'home';
+            history.replaceState({page: initialPage}, initialPage, `#${initialPage}`);
+            loadPage(initialPage);
+        });
+
+    </script>
+</body>
+</html>
