@@ -3,10 +3,9 @@
 name: Build Tailwind CSS
 
 on:
-  push:
-    branches:
-      - main # Or whichever branch you want to build from
-
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
 jobs:
   build:
     runs-on: ubuntu-latest
