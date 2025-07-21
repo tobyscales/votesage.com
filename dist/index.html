@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Candidate Name | Political Campaign</title>
-    
+    <title>Riegan Sage | Longmont At-Large City Councilmember</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link href="output.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
@@ -56,14 +56,11 @@
 </head>
 <body class="text-gray-800">
 
-    <header id="main-header" class="bg-white shadow-md">
-        <a href="#home" id="header-link" class="block cursor-pointer py-4 px-4 md:px-8">
-            <div class="container mx-auto grid grid-cols-2 md:grid-cols-3 items-center">
-                <h1 class="text-2xl md:text-3xl font-bold text-blue-800 col-span-1">Your Candidate Name</h1>
-                <div class="col-span-1 text-center">
-                    <p class="text-gray-500 font-semibold uppercase tracking-widest hidden md:block">For a Better Tomorrow</p>
-                </div>
-                <div class="col-span-1"></div> </div>
+    <header id="main-header" class="bg-blue-900 shadow-md"> <a href="#home" id="header-link" class="block cursor-pointer py-4 px-4 md:px-8">
+            <div class="container mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold uppercase text-white">Vote Sage</h1>
+                <p class="text-sm font-semibold tracking-widest text-white mt-1">"Make Longmont the best place to live and a great place to visit!"</p>
+            </div>
         </a>
     </header>
 
@@ -72,30 +69,33 @@
 
     <footer class="bg-gray-800 text-white p-4 z-50">
         <nav class="container mx-auto flex justify-center items-center space-x-4 md:space-x-8">
-            <a href="#about" class="nav-link hover:text-blue-300 transition duration-300 font-medium">About</a>
-            <a href="#platform" class="nav-link hover:text-blue-300 transition duration-300 font-medium">Platform</a>
-            <a href="#contact" class="nav-link hover:text-blue-300 transition duration-300 font-medium">Contact</a>
+            <a href="#about" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">About</a>
+            <a href="#platform" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Platform</a>
+            <a href="#contact" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Contact</a>
         </nav>
     </footer>
 
-    <template id="template-home">
-        <div class="hero-section flex flex-col justify-center p-8 
-                    md:flex-row md:justify-end md:p-0 relative bg-gray-100 
-                    md:bg-cover md:bg-center" 
-             style="background-image: url('https://placehold.co/1920x1080/667eea/ffffff?text=');">
+       <template id="template-home">
+        <div class="hero-section flex flex-col justify-center p-8
+                    md:flex-row md:justify-end md:items-center md:p-0 relative
+                    bg-white dark:bg-black
+                    md:bg-[url('./front-pg-md.png')] md:bg-cover md:bg-center">
             
-            <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-black/60 to-black/20"></div>
-
             <div class="relative w-full h-full flex flex-col justify-center items-center md:flex-row md:justify-end">
                 <div class="md:hidden mb-8">
                     <div class="p-2 bg-black rounded-full shadow-lg">
-                        <img src="https://placehold.co/400x400/e2e8f0/333333?text=Candidate" alt="Candidate Portrait" class="w-40 h-40 rounded-full border-4 border-white">
+                        <img src="front-page-sm.jpg" alt="Portrait: Riegan Sage" class="w-40 h-40 rounded-full border-4 border-white">
                     </div>
                 </div>
-
-                <div class="w-full md:w-1/2 text-center md:text-left md:p-16">
-                    <p class="text-xl md:text-3xl text-gray-800 md:text-white font-light leading-relaxed">
-                        Hi! I'm <span class="font-bold">[Candidate Name]</span>, a nominee for <span class="font-bold">[Office]</span>. I believe in creating a community where every voice is heard and every family has the opportunity to thrive. My focus is on practical solutions for economic growth, stronger schools, and accessible healthcare for all. Let's work together to build a better future for our district.
+                
+                <div class="w-full md:w-5/12 md:mr-24 text-center md:text-left md:p-12 md:bg-black/70 md:rounded-xl">
+                    <p class="text-xl md:text-3xl text-gray-800 dark:text-gray-100 md:text-white font-light leading-relaxed">
+                        Hi! I'm <span class="font-bold">Riegan Sage</span>, a nominee for <span class="font-bold">At-Large Councilmember in Longmont</span>. 
+                        I am passionate about a life of service, and take the responsibility of representing my community seriously. 
+                        I believe we need to restore trust in our process and be candid with the public. 
+                        We need to cite rationale as to why decisions are made, and more importantly we need to ask questions: of potential developers, of our community members and of our elected leadership.
+                        I fell in love with Longmont for its unique blend of wide open spaces, urban amenities and diverse spectrum of opinions. 
+                        Now I want to help preserve the city I love while shepherding it into a greater future.
                     </p>
                 </div>
             </div>
@@ -111,7 +111,8 @@
                 </div>
                 <div class="w-full md:w-2/3">
                     <p class="text-gray-600 mb-4">
-                        [Candidate Name] has been a dedicated public servant and community advocate for over 20 years. Born and raised in this district, they understand the challenges and opportunities we face. With a background in local government and a passion for grassroots organizing, [Candidate Name] has a proven track record of fighting for working families, improving public education, and protecting our environment.
+                        Riegan Sage has served on the boards of various organizations for over twenty years-- from non-profit theatre companies, to academic institutions, to Homeowners associations. 
+                        She has an MBA from the University of Miami and a BFA from the University of Southern California. She believes in direct community engagement, supporting local businesses and finding creative solutions to challenging problems. 
                     </p>
                     <p class="text-gray-600">
                         Their mission is to build a more inclusive and prosperous community where everyone has the opportunity to succeed. This campaign is about listening to you and bringing your voice to the forefront of policy-making.
@@ -126,12 +127,16 @@
             <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center">Our Platform: Key Issues</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <h3 class="text-xl font-bold text-blue-700 mb-2">Economic Opportunity</h3>
-                    <p class="text-gray-600">Fostering small business growth, creating well-paying jobs, and ensuring a fair economy for everyone.</p>
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Development</h3>
+                    <p class="text-gray-600">We should focus on supporting our local businesses, not subsidizing corporate chains. 
+                    As part of my outreach efforts, I'd like to create opportunities for local businesses to participate more directly
+                    in community building. We should know and support the small business owners of Longmont, because they are part of what makes us unique.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <h3 class="text-xl font-bold text-blue-700 mb-2">Education</h3>
-                    <p class="text-gray-600">Investing in our public schools, supporting our teachers, and making higher education more affordable.</p>
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">Housing</h3>
+                    <p class="text-gray-600">Houselessness is a purely preventable side effect of economic growth. 
+                        One of the major contributing factors is a lack of available homes, which is why I support direct funding for citizens who want to build ADUs on their property.
+                        Another key driver of houselessness is failing to keep </p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
                     <h3 class="text-xl font-bold text-blue-700 mb-2">Healthcare</h3>
