@@ -33,7 +33,7 @@ jobs:
 
       # 4. Runs the Tailwind CSS build command for production
       - name: Build Tailwind CSS
-        run: npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch
+        run: npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --cwd
 
       # 5. Updates index.html
       - name: Update index.html
