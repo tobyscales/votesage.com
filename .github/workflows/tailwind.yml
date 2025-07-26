@@ -37,10 +37,11 @@ jobs:
 
       # 5. Updates index.html
       - name: Update index.html
-        run: sed -i 's#<script src="https://cdn.tailwindcss.com"></script>#<link href="https://votesage.com/output.css" rel="stylesheet">#g' ./src/index.html
+        run: sed 's#<script src="https://cdn.tailwindcss.com"></script>#<link href="https://votesage.com/output.css" rel="stylesheet">#g' ./src/index.html > ./dist/index.html
 
       # 6. Commits the generated CSS file back to your repository
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: 'build: Generate optimized CSS'
+          file_pattern: './dist/*.*'
