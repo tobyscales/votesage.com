@@ -1,2 +1,2 @@
 /* src/input.css */
-@import "tailwindcss" source("./src/*.*");
+@import "tailwindcss" source("*.*");
