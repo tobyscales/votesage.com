@@ -22,6 +22,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+# This job calls your reusable workflow
+  build-assets:
+    name: Build CSS Assets
+    uses: ./.github/workflows/tailwind.yml # <-- Path to your reusable workflow
+
   # Single deploy job since we're just deploying
   deploy:
     environment:
