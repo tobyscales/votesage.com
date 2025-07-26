@@ -33,11 +33,11 @@ jobs:
 
       # 4. Runs the Tailwind CSS build command for production
       - name: Build Tailwind CSS
-        run: npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css
+        run: npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css
 
       # 5. Updates index.html
       - name: Update index.html
-        run: sed 's#<script src="https://cdn.tailwindcss.com"></script>#<link href="https://votesage.com/output.css" rel="stylesheet">#g' ./src/index.html > ./dist/index.html
+        run: sed 's#<script src="https://cdn.tailwindcss.com"></script>#<link href="output.css" rel="stylesheet">#g' ./src/index.html > ./dist/index.html
 
       # 6. Commits the generated CSS file back to your repository
       - name: Commit changes
