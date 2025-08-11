@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riegan Sage | Longmont At-Large City Councilmember</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        #page-content {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-section {
+            flex-grow: 1;
+        }
+        
+        main.is-home {
+            padding: 0;
+            max-width: none;
+        }
+      .honeypot-field {
+        display: none;
+      }
+      .details-box-container {
+        display: none;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+       }
+
+    </style>
+</head>
+<body class="text-gray-800">
+
+<div class="w-full bg-gray-900 text-white text-xs text-center p-2">
+    Paid for by VoteSage, a committee dedicated to electing Riegan Sage to Longmont's City Council and Authorized by Riegan Sage.
+</div>
+
+<header id="main-header" class="bg-purple-800 shadow-md">
+    <a href="#home" id="header-link" class="block cursor-pointer">
+        <div class="container mx-auto flex items-center justify-center md:justify-between py-4 px-4 md:px-8">
+            
+            <h1 class="hidden md:block text-4xl md:text-5xl font-bold uppercase text-white">Vote Sage</h1>
+
+            <div>
+                <p class="text-xl md:text-xl lg:text-2xl font-semibold tracking-wider text-white text-center">Make Longmont the best place to live<span class="md:hidden"> </span><br class="hidden md:block">and a great place to visit!</p>
+            </div>
+
+            <div class="hidden md:block invisible" aria-hidden="true">
+                 <h1 class="text-4xl md:text-5xl font-bold uppercase text-white">Vote Sage</h1>
+            </div>
+
+        </div>
+    </a>
+</header>
+
+    <main id="page-content" class="container mx-auto p-4 md:p-8">
+    </main>
+
+    <footer class="bg-gray-800 text-white p-4 z-50">
+        <nav class="container mx-auto flex justify-center items-center space-x-4 md:space-x-8">
+            <a href="#about" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">About</a>
+            <a href="#platform" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Platform</a>
+            <a href="#contact" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Contact</a>
+        </nav>
+    </footer>
+
+    <template id="template-home">
+        <div class="hero-section flex flex-col justify-center p-8
+                          md:flex-row md:justify-end md:items-center md:p-0 relative
+                          bg-white dark:bg-black
+                          md:bg-[url('./front-pg-md.png')] md:bg-cover md:bg-center">
+            
+            <div class="relative w-full h-full flex flex-col justify-center items-center md:flex-row md:justify-end">
+                <div class="md:hidden mb-8">
+                    <div class="p-2 bg-black rounded-full shadow-lg">
+                        <img src="front-page-sm.jpg" alt="Portrait: Riegan Sage" class="w-40 h-40 rounded-full border-4 border-white">
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-5/12 md:mr-24 text-center md:text-left md:p-12 md:bg-black/70 md:rounded-xl">
+                    <p class="text-xl md:text-2xl text-gray-800 dark:text-gray-100 md:text-white font-light leading-relaxed">
+                        Hi! I'm <span class="font-bold">Riegan Sage</span>, a nominee for <span class="font-bold">At-Large Councilmember</span> in Longmont. 
+                        As a city, we need to choose both what is important to us to preserve and how we want to grow. We should build on our strengths, connecting the pieces that are already successful. It is our responsibility to envision and articulate what we want Longmont to be and to collaborate creatively with developers to bring that to fruition. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-about">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-6">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="w-full md:w-1/3">
+                    <img src="./with-horses.jpg" alt="Riegan Sage with Family" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <p class="text-gray-600 mb-4">I’ve lived in Longmont for four years but it only took a few days staying here to see how special it is. 
+                        The history, the neighborhoods, the people who call this place home.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        I want to support Longmont entrepreneurs bringing their businesses to life here. 
+                        That happens when we make Longmont the best place to live- with <strong>affordable</strong> homes (affordable meaning you can still afford to use the amenities in our city, not just scraping together rent or a mortgage)- and a great place to visit.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        I have been serving on the boards of various organizations for over twenty years-- from non-profit theatre companies, to academic institutions, to Homeowners associations. Previously I've run marketing and operations for a global clothing brand, consulted privately with entrepreneurs building businesses and worked in education for over fifteen years.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        I have an MBA from the University of Miami and a BFA from the University of Southern California.                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="template-platform">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center">Challenges and Opportunities</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Main Box 1 -->
+                <div id="preserve-box" class="bg-gray-100 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                    <h3 class="text-2xl font-bold text-purple-800 mb-3">Preserve what we love about Longmont</h3>
+                    <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed-dolor st amet, consectetur adipiscing elit. Sed-dolor st amet, consectetur adipiscing elit. Sed-dolor s nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                </div>
+                <!-- Main Box 2 -->
+                <div id="plan-box" class="bg-gray-100 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                    <h3 class="text-2xl font-bold text-purple-800 mb-3">Plan for the exciting future of Longmont</h3>
+                    <p class="text-gray-700">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+                </div>
+            </div>
+            
+            <!-- Details for "Preserve" -->
+            <div id="preserve-details" class="details-box-container">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Housing and Affordability</h3>
+                    <p class="text-gray-600"><strong>Let’s build more housing.</strong> The only way to make housing more affordable and to ensure against rising houseless population is to make more housing available. I am against sprawl. I am for: increasing the mix and variety of housing, revamping unused industrial space, building smaller homes for sale and rent, getting creative and offering direct incentives and reducing fees to homeowners who want to build ADUs for long term rentals.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Agriculture</h3>
+                    <p class="text-gray-600"><strong>Let’s lead in agricultural innovation and incorporate it into our city planning.</strong> Longmont's history is steeped in agriculture. We rent out 1000 acres of agricultural land and we’ve voted to allocate more money towards acquiring green space and farm land. Let’s partner with and attract innovative farmers who take stewardship seriously. Let’s build an agritourism destination. Let’s consider agrihub neighborhoods. Let’s feed our community. Let’s be self reliant.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Measure what matters</h3>
+                    <p class="text-gray-600"><strong>Let’s reimagine how we measure success.</strong> I believe we need to create new metrics with which to measure our success as a city. What we measure should be decided by Longmont citizens and should point toward the future we envision. Some examples might be: how many new public transit adopters we have, families we’ve kept in their homes, small business success rates, acreage of green space acquired, etc. What we measure dictates where our attention goes.</p>
+                </div>
+            </div>
+
+            <!-- Details for "Plan" -->
+            <div id="plan-details" class="details-box-container">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Tourism and Business</h3>
+                    <p class="text-gray-600"><strong>Let’s bring more people to our businesses.</strong> Our local businesses are wonderful and in order to thrive they need more patronage. We should focus on attracting visitors to Longmont, both from neighboring cities as well as from afar. We have an incredible opportunity with the Sundance Film Festival moving to Boulder in 2027, and we need to be ready to seize it. Let’s make Longmont the BEST place to live, and a great place to visit.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Traffic</h3>
+                    <p class="text-gray-600"><strong>Let’s grow together.</strong> As Longmont’s population increases, traffic will continue to grow. By investing in the right mix of intercity and intracity transport for the routes that people need we can make a multi-modal Longmont for all. Bike lanes, bikeshares, free high-density bus routes and our innovative RIDE Longmont program are good additions to the cars on the road, As autonomous vehicles become more prevalent, I would also be in favor of adopting autonomous shuttles to supplement travel to neighboring cities and between hubs within Longmont as long as it serves our residents to do so.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Energy and Resource Management</h3>
+                    <p class="text-gray-600"><strong>Let’s be smart.</strong> Energy costs will continue to rise for the foreseeable future. As energy became cheaper in the last century, we became wasteful and complacent. As costs have gone up, we have not reexamined our own usage. We need to both offer support to our neighbors who are struggling, as well as incentivize energy and water conservation. We can do this by creating graduated energy usage programs and investing in renewables at the city level.</p>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-contact">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-6">We're an Idea-Powered Campaign!</h2>
+            <p class="text-gray-600 mb-8 text-center">NextLight launched in 2014 thanks to the brilliant foresight of Longmont's City Council, and today it is recognized as one of the top ISPs in North America.<br><br>What is the next big idea we're going to build and invest in? Agriculture? Solar batteries? Quantum computing? We want your input and ideas!</p>
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <div>
+                    <form 
+                        action="https://formcarry.com/s/zZeaB_foSML"
+                        method="POST"
+                        enctype="multipart/form-data"
+                        >
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
+                        </div>
+                          <div class="honeypot-field">
+                            <label for="honeypot">Don't fill this out if you're human:</label>
+                            <input type="text" id="honeypot" name="honeypot">
+                          </div>
+                        <button type="submit" class="w-full bg-blue-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Submit</button>
+                    </form>
+                </div>
+                <div>
+                    <img src="./road-ahead.jpg" alt="A road unfolding into the mountains." class="rounded-lg shadow-lg w-full">
+                </div>
+                </div>
+        </div>
+    </template>
+    
+    <script>
+        const pageContent = document.getElementById('page-content');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const headerLink = document.getElementById('header-link');
+
+        const pages = {
+            home: document.getElementById('template-home').innerHTML,
+            about: document.getElementById('template-about').innerHTML,
+            platform: document.getElementById('template-platform').innerHTML,
+            contact: document.getElementById('template-contact').innerHTML,
+        };
+
+        function loadPage(page) {
+            pageContent.style.animation = 'fadeOut 0.3s ease-in-out';
+            
+            setTimeout(() => {
+                if (page === 'home') {
+                    pageContent.classList.add('is-home');
+                    pageContent.classList.remove('container', 'mx-auto', 'p-4', 'md:p-8');
+                } else {
+                    pageContent.classList.remove('is-home');
+                    pageContent.classList.add('container', 'mx-auto', 'p-4', 'md:p-8');
+                }
+
+                pageContent.innerHTML = pages[page] || pages['home'];
+                pageContent.style.animation = 'fadeIn 0.5s ease-in-out';
+                updateActiveLink(page);
+                window.scrollTo(0, 0);
+
+                if (page === 'platform') {
+                    initializePlatformPage();
+                }
+            }, 300);
+        }
+        
+        function updateActiveLink(activePage) {
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href').substring(1);
+                if (linkPage === activePage) {
+                    link.classList.add('text-blue-300', 'font-bold');
+                    link.classList.remove('text-white');
+                    link.setAttribute('aria-current', 'page');
+                } else {
+                    link.classList.remove('text-blue-300', 'font-bold');
+                    link.classList.add('text-white');
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+        function handleNav(e) {
+            e.preventDefault();
+            const page = e.currentTarget.getAttribute('href').substring(1);
+            history.pushState({page}, page, `#${page}`);
+            loadPage(page);
+        }
+
+        function initializePlatformPage() {
+            const preserveBox = document.getElementById('preserve-box');
+            const planBox = document.getElementById('plan-box');
+            const preserveDetails = document.getElementById('preserve-details');
+            const planDetails = document.getElementById('plan-details');
+
+            preserveBox.addEventListener('click', () => {
+                if (preserveDetails.style.display === 'grid') {
+                    preserveDetails.style.display = 'none';
+                    preserveBox.classList.remove('bg-purple-200');
+                } else {
+                    preserveDetails.style.display = 'grid';
+                    planDetails.style.display = 'none';
+                    preserveBox.classList.add('bg-purple-200');
+                    planBox.classList.remove('bg-purple-200');
+                }
+            });
+
+            planBox.addEventListener('click', () => {
+                 if (planDetails.style.display === 'grid') {
+                    planDetails.style.display = 'none';
+                    planBox.classList.remove('bg-purple-200');
+                }
+                else {
+                    planDetails.style.display = 'grid';
+                    preserveDetails.style.display = 'none';
+                    planBox.classList.add('bg-purple-200');
+                    preserveBox.classList.remove('bg-purple-200');
+                }
+            });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', handleNav);
+        });
+
+        headerLink.addEventListener('click', handleNav);
+
+        window.addEventListener('popstate', (e) => {
+            const page = e.state ? e.state.page : 'home';
+            loadPage(page);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialPage = window.location.hash ? window.location.hash.substring(1) : 'home';
+            history.replaceState({page: initialPage}, initialPage, `#${initialPage}`);
+            loadPage(initialPage);
+        });
+
+    </script>
+</body>
+</html>
