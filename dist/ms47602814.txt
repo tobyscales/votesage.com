@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "votesage.com",
+  "Id": "ec8da721-f7e2-420c-ba04-778634e1c917"
+}
