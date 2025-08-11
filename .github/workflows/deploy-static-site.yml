@@ -22,10 +22,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-# This job calls your reusable workflow
-  build-assets:
-    name: Build CSS Assets
-    uses: ./.github/workflows/tailwind.yml # <-- Path to your reusable workflow
 
   # Single deploy job since we're just deploying
   deploy:
@@ -33,10 +29,29 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build-assets
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+         # 2. Sets up Node.js for the next steps
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Specify your Node.js version
+
+      # 3. Installs your project dependencies from package.json
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Runs the Tailwind CSS build command for production
+      - name: Build Tailwind CSS
+        run: npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css
+
+      # 5. Updates index.html
+      - name: Update index.html
+        run: sed 's#<script src="https://cdn.tailwindcss.com"></script>#<link href="output.css" rel="stylesheet">#g' ./src/index.html > ./dist/index.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
