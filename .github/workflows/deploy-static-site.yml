@@ -34,7 +34,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-         # 2. Sets up Node.js for the next steps
+      # 1. Copies src to dist
+      - name: Copy src to dist
+        run: cp -R ./src ./dist
+
+      # 2. Sets up Node.js for the next steps
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -51,9 +55,10 @@ jobs:
       # 5. Updates index.html
       - name: Update index.html
         run: sed 's#<script src="https://cdn.tailwindcss.com"></script>#<link href="output.css" rel="stylesheet">#g' ./src/index.html > ./dist/index.html
-
+  
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
