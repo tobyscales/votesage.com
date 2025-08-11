@@ -57,7 +57,7 @@
       }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="text-gray-800 pb-12">
 
 <header id="main-header" class="bg-purple-800 shadow-md">
     <a href="#home" id="header-link" class="block cursor-pointer">
@@ -88,11 +88,11 @@
         </nav>
     </footer>
 
-       <template id="template-home">
+    <template id="template-home">
         <div class="hero-section flex flex-col justify-center p-8
-                    md:flex-row md:justify-end md:items-center md:p-0 relative
-                    bg-white dark:bg-black
-                    md:bg-[url('./front-pg-md.png')] md:bg-cover md:bg-center">
+                      md:flex-row md:justify-end md:items-center md:p-0 relative
+                      bg-white dark:bg-black
+                      md:bg-[url('./front-pg-md.png')] md:bg-cover md:bg-center">
             
             <div class="relative w-full h-full flex flex-col justify-center items-center md:flex-row md:justify-end">
                 <div class="md:hidden mb-8">
@@ -149,7 +149,7 @@
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
                     <h3 class="text-xl font-bold text-blue-800 mb-2">Energy and Resource Management</h3>
-                    <p class="text-gray-600">Energy costs will continue to rise for the foreseeable future.                         We need to both offer support to our neighbors who are struggling to get ahead, as                          well as incentivize energy conservation. We can do this by creating graduated                               energy usage programs and investing in renewables at the city level.</p>
+                    <p class="text-gray-600">Energy costs will continue to rise for the foreseeable future.                          We need to both offer support to our neighbors who are struggling to get ahead, as                               well as incentivize energy conservation. We can do this by creating graduated                                    energy usage programs and investing in renewables at the city level.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
                     <h3 class="text-xl font-bold text-blue-800 mb-2">Tourism and Business</h3>
@@ -164,9 +164,9 @@
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
                     <h3 class="text-xl font-bold text-blue-800 mb-2">Traffic</h3>
-                    <p class="text-gray-600">As Longmont's population increases, the traffic on our streets                         will continue to grow. By investing in the right mix of bike lanes, bikeshares,                             free high-density bus routes and our 
+                    <p class="text-gray-600">As Longmont's population increases, the traffic on our streets                               will continue to grow. By investing in the right mix of bike lanes, bikeshares,                                   free high-density bus routes and our 
                         innovative <a href="https://city.ridewithvia.com/longmont">RIDE Longmont</a> 
-                        program, we can successfully manage our growth while keeping our city livable                          and affordable. Here again, what we measure matters and we need to focus not just                           on ridership numbers but also on how our traffic management programs are serving                            both business owners and local workers.</p>
+                        program, we can successfully manage our growth while keeping our city livable                                and affordable. Here again, what we measure matters and we need to focus not just                               on ridership numbers but also on how our traffic management programs are serving                                both business owners and local workers.</p>
                 </div>
                 
                 <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
@@ -183,7 +183,6 @@
             <p class="text-gray-600 mb-8 text-center">NextLight launched in 2014 thanks to the brilliant foresight of Longmont's City Council, and today it is recognized as one of the top ISPs in North America.<br><br>What is the next big idea we're going to build and invest in? Agriculture? Solar batteries? Quantum computing? We want your input and ideas!</p>
             <div class="grid md:grid-cols-2 gap-8">
 
-                <!-- modify this form HTML as you wish and place wherever you want your form -->
                 <div>
                     <form 
                         action="https://formcarry.com/s/zZeaB_foSML"
@@ -212,18 +211,13 @@
                 <div>
                     <img src="./road-ahead.jpg" alt="A road unfolding into the mountains." class="rounded-lg shadow-lg w-full">
                 </div>
-                <!-- <div>
-                     <h3 class="text-xl font-bold text-blue-700 mb-4">Follow Us</h3>
-                     <div class="flex space-x-4">
-                         <a href="#" class="text-blue-600 hover:text-blue-800">Twitter</a>
-                         <a href="#" class="text-blue-600 hover:text-blue-800">Facebook</a>
-                         <a href="#" class="text-blue-600 hover:text-blue-800">Instagram</a>
-                     </div> 
-                </div> -->
-            </div>
+                </div>
         </div>
     </template>
     
+    <div class="fixed bottom-0 left-0 w-full bg-gray-900 text-white text-xs text-center p-2 z-50">
+        Paid for by VoteSage, a committee dedicated to electing Riegan Sage to Longmont's City Council and Authorized by Riegan Sage.
+    </div>
     <script>
         const pageContent = document.getElementById('page-content');
         const navLinks = document.querySelectorAll('.nav-link');
