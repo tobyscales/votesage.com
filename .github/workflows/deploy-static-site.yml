@@ -52,10 +52,20 @@ jobs:
       - name: Build Tailwind CSS
         run: npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css
 
-      # 5. Updates index.html
-      - name: Update index.html
+      # 5. Updates index.html w Tailwind
+      - name: Update index.html w Tailwind
         run: sed 's#<script src="https://cdn.tailwindcss.com"></script>#<link href="output.css" rel="stylesheet">#g' ./src/index.html > ./dist/index.html
-  
+
+      # 6. Updates index.html w GA
+      - name: Update index.html w GA
+        run: sed -i '/<head.*>/a \
+              <!-- Google tag (gtag.js) -->\
+              <script async src="https://www.googletagmanager.com/gtag/js?id=G-S749PTD4W9"><\/script>\
+              <script>\
+              window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('\''js'\'', new Date());gtag('\''config'\'', '\''G-S749PTD4W9'\'');\
+              <\/script>' ./src/index.html > ./dist/index.html
+              
+      # 7. Sets up Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
