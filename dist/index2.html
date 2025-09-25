@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riegan Sage | Longmont At-Large City Councilmember</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S749PTD4W9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-S749PTD4W9');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Main body layout */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            /* Add padding to prevent content being hidden by sticky mobile footer */
+            padding-bottom: 72px; /* Adjust based on footer height */
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
+            footer {
+                position: static; /* Footer is not sticky on desktop */
+            }
+        }
+
+        /* Sticky Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        /* Main content flex container */
+        #page-content {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero section fills available space */
+        .hero-section {
+            flex-grow: 1;
+        }
+        
+        /* Special styling for homepage main content */
+        main.is-home {
+            padding: 0;
+            max-width: none;
+        }
+        /* This CSS hides the honeypot field */
+        .honeypot-field {
+            display: none;
+        }
+
+/* NEW SVG Icon CSS - Replaces the old icon rules */
+        .icon-cell-yes::after,
+        .icon-cell-no::after {
+            content: '';
+            display: block;
+            width: 2rem;  /* 32px */
+            height: 2rem; /* 32px */
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .icon-cell-yes::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%2322c55e'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M4.5 12.75l6 6 9-13.5' /%3E%3C/svg%3E");
+        }
+
+        .icon-cell-no::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%23ef4444'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636' /%3E%3C/svg%3E");
+        }
+
+        /* Center the icons on desktop */
+        @media (min-width: 768px) {
+            .icon-cell-yes::after,
+            .icon-cell-no::after {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* Hamburger Menu Toggle Animation */
+        #hamburger-btn.is-active .block:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+        #hamburger-btn.is-active .block:nth-child(2) {
+            opacity: 0;
+        }
+        #hamburger-btn.is-active .block:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+        #hamburger-btn .block {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Responsive Tables (Card layout on mobile) */
+        @media (max-width: 767px) {
+            .responsive-table thead {
+                display: none;
+            }
+            .responsive-table tr {
+                display: block;
+                border: 1px solid #e2e8f0;
+                border-radius: 0.5rem;
+                margin-bottom: 1rem;
+                padding: 1rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                background-color: #fff;
+            }
+            .responsive-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #edf2f7;
+                text-align: right;
+            }
+            .responsive-table td:last-child {
+                border-bottom: none;
+            }
+            .responsive-table td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: #4a5568;
+                margin-right: 1rem;
+                text-align: left;
+            }
+            /* Specific adjustments for positions table's icon */
+            .responsive-table td .icon-no, .responsive-table td .icon-yes {
+                margin: 0; /* Remove mx-auto */
+            }
+            /* For the 'Why' / 'Description' column, make it stack vertically */
+             .responsive-table td.full-width-cell {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                padding-top: 0.75rem;
+             }
+             .responsive-table td.full-width-cell::before {
+                 margin-bottom: 0.5rem;
+                 color: #2d3748;
+                 font-size: 1.125rem;
+             }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+<div class="w-full bg-gray-900 text-white text-xs text-center p-2">
+    Paid for by VoteSage, a committee dedicated to electing Riegan Sage to Longmont's City Council and Authorized by Riegan Sage.
+</div>
+
+<header id="main-header" class="bg-purple-800 shadow-md">
+    <a href="#home" id="header-link" class="block cursor-pointer">
+        <div class="container mx-auto flex items-center justify-center md:justify-between py-4 px-4 md:px-8">
+            
+            <h1 class="hidden md:block text-4xl md:text-5xl font-bold uppercase text-white">Vote Sage</h1>
+
+            <div>
+                <p class="text-xl md:text-xl lg:text-2xl font-semibold tracking-wider text-white text-center">Make Longmont the best place to live<span class="md:hidden"> </span><br class="hidden md:block">and a great place to visit!</p>
+            </div>
+
+            <div class="hidden md:block invisible" aria-hidden="true">
+                 <h1 class="text-4xl md:text-5xl font-bold uppercase text-white">Vote Sage</h1>
+            </div>
+
+        </div>
+    </a>
+</header>
+
+    <main id="page-content" class="container mx-auto p-4 md:p-8">
+    </main>
+    
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 z-40 hidden flex-col items-center justify-center space-y-8 transition-opacity duration-300">
+        <a href="#about" class="nav-link-mobile text-white text-3xl uppercase font-bold">About Me</a>
+        <a href="#positions" class="nav-link-mobile text-white text-3xl uppercase font-bold">Positions</a>
+        <a href="#events" class="nav-link-mobile text-white text-3xl uppercase font-bold">Events</a>
+    </div>
+
+    <footer class="bg-gray-800 text-white p-4 z-50 fixed bottom-0 w-full md:static">
+        <nav class="container mx-auto hidden md:flex justify-center items-center space-x-4 md:space-x-8">
+            <a href="#about" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">About Me</a>
+            <a href="#positions" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Positions</a>
+            <a href="#events" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Events</a>
+            <a href="#get-involved" class="nav-link bg-purple-800 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition duration-300 font-medium text-lg uppercase">Get Involved</a>
+        </nav>
+        <div class="md:hidden flex justify-between items-center container mx-auto">
+             <button id="hamburger-btn" class="z-50 space-y-2">
+                <span class="block w-8 h-0.5 bg-white"></span>
+                <span class="block w-8 h-0.5 bg-white"></span>
+                <span class="block w-8 h-0.5 bg-white"></span>
+            </button>
+            <a href="#get-involved" class="nav-link bg-purple-800 text-white px-6 py-2 rounded-md hover:bg-purple-700 transition duration-300 font-medium text-lg uppercase">Get Involved</a>
+        </div>
+    </footer>
+
+
+    <template id="template-home">
+        <div class="hero-section flex flex-col justify-center p-8
+                          md:flex-row md:justify-end md:items-center md:p-0 relative
+                          bg-white dark:bg-black
+                          md:bg-[url('./front-pg-md.jpg')] md:bg-cover md:bg-center">
+            
+            <div class="relative w-full h-full flex flex-col justify-center items-center md:flex-row md:justify-end">
+                <div class="md:hidden mb-8">
+                    <div class="p-2 bg-black rounded-full shadow-lg">
+                        <img src="front-pg-sm.jpg" alt="Portrait: Riegan Sage" class="w-40 h-40 rounded-full border-4 border-white">
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-5/12 md:mr-24 text-center md:text-left md:p-12 md:bg-black/70 md:rounded-xl">
+                    <p class="text-xl md:text-2xl text-gray-800 dark:text-gray-100 md:text-white font-light leading-relaxed">
+                        Hi! I'm <span class="font-bold">Riegan Sage</span>, a nominee for <span class="font-bold">At-Large Councilmember</span> in Longmont. 
+                        As a city, we need to choose both what is important to us to preserve and how we want to grow. We should build on our strengths, connecting the pieces that are already successful. It is our responsibility to envision and articulate what we want Longmont to be and to collaborate creatively to bring that to fruition. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-about">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-6">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="w-full md:w-1/3">
+                    <img src="./with-horses.jpg" alt="Riegan Sage with Family" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <p class="text-gray-600 mb-4">I’ve lived in Longmont for four years but it only took a few days staying here to see how special it is. 
+                        The history, the neighborhoods, the people who call this place home.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        I want to support Longmont entrepreneurs bringing their businesses to life here. 
+                        That happens when we make Longmont the best place to live- with <strong>affordable</strong> homes (affordable meaning you can still afford to use the amenities in our city, not just scraping together rent or a mortgage)- and a great place to visit.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        I have been serving on the boards of various organizations for over twenty years-- from non-profit theatre companies, to academic institutions, to Homeowners associations. Previously I've run marketing and operations for a global clothing brand, consulted privately with entrepreneurs building businesses and worked in education for over fifteen years.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        I have an MBA from the University of Miami and a BFA from the University of Southern California.                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="template-platform">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center">Challenges and Opportunities</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Housing and Affordability</h3>
+<p class="text-gray-600"><strong>Let’s build more housing.</strong> The only way to make housing more affordable and to ensure against rising houseless population is to make more housing available. I am against sprawl. I am for: increasing the mix and variety of housing, revamping unused industrial space, building smaller homes for sale and rent, getting creative and offering direct incentives and reducing fees to homeowners who want to build ADUs for long term rentals.
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Tourism and Business</h3>
+                    <p class="text-gray-600"><strong>Let’s bring more people to our businesses.</strong> Our local businesses are wonderful and in order to thrive they need more patronage. We should focus on attracting visitors to Longmont, both from neighboring cities as well as from afar. We have an incredible opportunity with the  Sundance Film Festival moving to Boulder in 2027, and we need to be ready to seize it. Let’s make Longmont the BEST place to live, and a great place to visit.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Measure what matters</h3>
+<p class="text-gray-600"><strong>Let’s reimagine how we measure success.</strong> I believe we need to create new metrics with which to measure our success as a city. What we measure should be decided by Longmont citizens and should point toward the future we envision. Some examples might be: how many new public transit adopters we have, families we’ve kept in their homes, small business success rates, acreage of green space acquired, etc. What we measure dictates where our attention goes. </p>
+                </div>
+              <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Agriculture</h3>
+                    <p class="text-gray-600"><strong>Let’s lead in agricultural innovation and incorporate it into our city planning.</strong> Longmont's history is steeped in agriculture. We rent out 1000 acres of agricultural land and we’ve voted to allocate more money towards acquiring green space and farm land. Let’s partner with and attract innovative farmers who take stewardship seriously. Let’s build an agritourism destination. Let’s consider agrihub neighborhoods. Let’s feed our community. Let’s be self reliant.
+</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Traffic</h3>
+                    <p class="text-gray-600"><strong>Let’s grow together.</strong> As Longmont’s population increases, traffic will continue to grow. By investing in the right mix of intercity and intracity transport for the routes that people need we can make a multi-modal Longmont for all. Bike lanes, bikeshares, free high-density bus routes and our innovative RIDE Longmont program are good additions to the cars on the road, As autonomous vehicles become more prevalent, I would also be in favor of adopting autonomous shuttles to supplement travel to neighboring cities and between hubs within Longmont as long as it serves our residents to do so.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Energy and Resource Management</h3>
+                    <p class="text-gray-600"><strong>Let’s be smart.</strong> Energy costs will continue to rise for the foreseeable future. As energy became cheaper in the last century, we became wasteful and complacent. As costs have gone up, we have not reexamined our own usage. We need to both offer support to our neighbors who are struggling, as well as incentivize energy and water conservation. We can do this by creating graduated energy usage programs and investing in renewables at the city level.</p>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+<template id="template-positions">
+    <div class="bg-white p-6 md:p-8 rounded-lg shadow-md md:bg-transparent md:shadow-none">
+        <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center">My Positions</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white shadow-md rounded-lg responsive-table">
+                <thead class="bg-purple-800 text-white">
+                    <tr>
+                        <th class="py-4 px-6 text-left text-lg font-semibold">Issue</th>
+                        <th class="py-4 px-6 text-center text-lg font-semibold w-24">YES</th>
+                        <th class="py-4 px-6 text-center text-lg font-semibold w-24">NO</th>
+                        <th class="py-4 px-6 text-left text-lg font-semibold">Why</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700">
+                    <tr class="border-b hover:bg-purple-50 md:border-b-0">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Revisiting Envision Longmont</td>
+                        <td data-label="YES" class="py-4 px-6 text-center icon-cell-yes"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">I've read every page of Envision Longmont, and I believe it's a thorough and well-written document. However, the map data is ten years old and we should take another look at where we can encourage denser development to reduce traffic and keep our city livable.</td>
+                    </tr>
+                    <tr class="border-b hover:bg-purple-50 md:border-b-0">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Engaging with Sundance Film Festival</td>
+                        <td data-label="YES" class="py-4 px-6 text-center icon-cell-yes"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">We have a once-in-a-generation opportunity to define ourselves as a welcoming sister city when Boulder hosts the Sundance Film Festival starting in 2027. Council should take immediate steps to engage with the Sundance Commission, Visit Longmont and other key stakeholders to ensure our residents enjoy the benefits this increased tourism will bring.</td>
+                    </tr>
+                    <tr class="border-b hover:bg-purple-50 md:border-b-0">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Creating a City-Wide Minimum Wage</td>
+                        <td data-label="YES" class="py-4 px-6 text-center"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center icon-cell-no"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">A living wage is crucial to our success as a community. But our small businesses are crucial to our success as a city. I would support raising the minimum wage on businesses of a certain size, but I can't support a blanket increase which will do so much damage to our neighbors.</td>
+                    </tr>
+                    <tr class="border-b hover:bg-purple-50 md:border-b-0">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Revoking the Kanemoto Estates Conservation Easement</td>
+                        <td data-label="YES" class="py-4 px-6 text-center"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center icon-cell-no"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">A conservation easement that can be revoked with the stroke of a pen from City Council is not worth the paper it is written on. We must do better as elected leaders. If the interests that want to revoke this easement wish to put the matter to the voters, there is a clear process for doing so. Anything else is backroom politics, and I will have no part in that.</td>
+                    </tr>
+                    <tr class="hover:bg-purple-50">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Distel-Tull Land Swap</td>
+                        <td data-label="YES" class="py-4 px-6 text-center"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center icon-cell-no"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">While I would personally welcome a composting facility in Longmont, the same principle applies here. We can't act unilaterally as City Council or we will lose the public trust. Let's put the matter on the ballot and let the voters decide.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
+    
+    <template id="template-events">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md md:bg-transparent md:shadow-none">
+            <h2 class="text-3xl font-bold text-blue-800 mb-6">Upcoming Events</h2>
+            <p class="text-gray-600 mb-8">Come say hello, ask questions, and share your ideas for Longmont's future. I look forward to meeting you!</p>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white responsive-table">
+                    <thead class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                        <tr>
+                            <th class="py-3 px-6 text-left">Date</th>
+                            <th class="py-3 px-6 text-left">Event Name</th>
+                            <th class="py-3 px-6 text-left">Location</th>
+                            <th class="py-3 px-6 text-left">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 text-sm font-light">
+                        <tr class="border-b border-gray-200 hover:bg-gray-100 md:border-b">
+                            <td data-label="Date" class="py-3 px-6 text-left whitespace-nowrap">Oct 5, 2025 @ 10am</td>
+                            <td data-label="Event" class="py-3 px-6 text-left">Coffee with the Candidate</td>
+                            <td data-label="Location" class="py-3 px-6 text-left">Java Stop, Main Street</td>
+                            <td data-label="Description" class="py-3 px-6 text-left full-width-cell">A casual meet-and-greet to discuss local issues over a cup of coffee.</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-100 md:border-b">
+                            <td data-label="Date" class="py-3 px-6 text-left whitespace-nowrap">Oct 12, 2025 @ 2pm</td>
+                            <td data-label="Event" class="py-3 px-6 text-left">Town Hall at Roosevelt Park</td>
+                            <td data-label="Location" class="py-3 px-6 text-left">Roosevelt Park Pavilion</td>
+                            <td data-label="Description" class="py-3 px-6 text-left full-width-cell">Join us for a public forum on the future of Longmont's green spaces and recreational areas.</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-100 md:border-b-0">
+                            <td data-label="Date" class="py-3 px-6 text-left whitespace-nowrap">Oct 19, 2025 @ 6pm</td>
+                            <td data-label="Event" class="py-3 px-6 text-left">Small Business Roundtable</td>
+                            <td data-label="Location" class="py-3 px-6 text-left">Longmont Public Library</td>
+                            <td data-label="Description" class="py-3 px-6 text-left full-width-cell">A discussion with local entrepreneurs about creating a more vibrant business environment.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-get-involved">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-4 text-center">Get Involved</h2>
+            <p class="text-gray-600 mb-8 text-center max-w-3xl mx-auto">This campaign is powered by people like you who are passionate about Longmont's future. Whether you can volunteer your time, host a yard sign, or help spread the word, your support makes all the difference. Let's work together to build a better Longmont for everyone.</p>
+            <hr class="my-8">
+            <h2 class="text-3xl font-bold text-blue-800 mb-6 text-center">We're an Idea-Powered Campaign!</h2>
+            <p class="text-gray-600 mb-8 text-center">NextLight launched in 2014 thanks to the brilliant foresight of Longmont's City Council, and today it is recognized as one of the top ISPs in North America.<br><br>What is the next big idea we're going to build and invest in? Agriculture? Solar batteries? Quantum computing? We want your input and ideas!</p>
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <div>
+                    <form 
+                        action="https://formcarry.com/s/zZeaB_foSML"
+                        method="POST"
+                        enctype="multipart/form-data"
+                        >
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
+                        </div>
+                          <div class="honeypot-field">
+                            <label for="honeypot">Don't fill this out if you're human:</label>
+                            <input type="text" id="honeypot" name="honeypot">
+                          </div>
+                        <button type="submit" class="w-full bg-blue-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Submit</button>
+                    </form>
+                </div>
+                <div>
+                    <img src="./road-ahead.jpg" alt="A road unfolding into the mountains." class="rounded-lg shadow-lg w-full">
+                </div>
+                </div>
+        </div>
+    </template>
+    
+    <script>
+        const pageContent = document.getElementById('page-content');
+        const headerLink = document.getElementById('header-link');
+        // Select all navigation links, from both desktop and mobile menus
+        const navLinks = document.querySelectorAll('.nav-link, .nav-link-mobile');
+        
+        // --- Mobile Menu Toggle ---
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            hamburgerBtn.classList.toggle('is-active');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            document.body.classList.toggle('overflow-hidden'); // Prevent scrolling when menu is open
+        }
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+
+
+        // Page Content Templates
+        const pages = {
+            home: document.getElementById('template-home').innerHTML,
+            about: document.getElementById('template-about').innerHTML,
+            platform: document.getElementById('template-platform').innerHTML,
+            positions: document.getElementById('template-positions').innerHTML,
+            events: document.getElementById('template-events').innerHTML,
+            'get-involved': document.getElementById('template-get-involved').innerHTML,
+        };
+
+        // --- Routing and Page Loading ---
+        function loadPage(page) {
+            pageContent.style.animation = 'fadeOut 0.3s ease-in-out';
+            
+            setTimeout(() => {
+                // Special styling for the homepage to allow full-width hero
+                if (page === 'home') {
+                    pageContent.classList.add('is-home');
+                    pageContent.classList.remove('container', 'mx-auto', 'p-4', 'md:p-8');
+                } else {
+                    pageContent.classList.remove('is-home');
+                    pageContent.classList.add('container', 'mx-auto', 'p-4', 'md:p-8');
+                }
+
+                pageContent.innerHTML = pages[page] || pages['home'];
+                pageContent.style.animation = 'fadeIn 0.5s ease-in-out';
+                updateActiveLink(page);
+                window.scrollTo(0, 0); // Scroll to top on page change
+            }, 300); // This duration should match the fadeOut animation time
+        }
+        
+        function updateActiveLink(activePage) {
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href').substring(1);
+
+                // Reset regular desktop links
+                if(link.classList.contains('nav-link')) {
+                    link.classList.remove('text-blue-300', 'font-bold');
+                    if (!link.href.includes('get-involved')) { // Don't reset the Get Involved button's default color
+                        link.classList.add('text-white');
+                    }
+                }
+                
+                // Reset mobile links
+                if(link.classList.contains('nav-link-mobile')) {
+                    link.classList.remove('text-purple-400');
+                    link.classList.add('text-white');
+                }
+
+
+                if (linkPage === activePage) {
+                     if (link.classList.contains('nav-link') && !link.href.includes('get-involved')) {
+                        link.classList.add('text-blue-300', 'font-bold');
+                        link.classList.remove('text-white');
+                    }
+                     if (link.classList.contains('nav-link-mobile')) {
+                         link.classList.add('text-purple-400');
+                         link.classList.remove('text-white');
+                     }
+                    link.setAttribute('aria-current', 'page');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        function handleNav(e) {
+            e.preventDefault();
+            
+            // If mobile menu is open, close it
+            if (!mobileMenu.classList.contains('hidden')) {
+                toggleMenu();
+            }
+
+            const page = e.currentTarget.getAttribute('href').substring(1);
+            history.pushState({page}, page, `#${page}`);
+            loadPage(page);
+        }
+
+        // --- Event Listeners ---
+        navLinks.forEach(link => {
+            link.addEventListener('click', handleNav);
+        });
+
+        headerLink.addEventListener('click', handleNav);
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', (e) => {
+            const page = e.state ? e.state.page : 'home';
+            loadPage(page);
+        });
+
+        // --- Initial Page Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialPage = window.location.hash ? window.location.hash.substring(1) : 'home';
+            history.replaceState({page: initialPage}, initialPage, `#${initialPage}`);
+            loadPage(initialPage);
+        });
+
+    </script>
+</body>
+</html>
