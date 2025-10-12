@@ -55,6 +55,13 @@ jobs:
       # 5. Updates index.html w Tailwind
       - name: Update index.html w Tailwind
         run: sed 's#<script src="https://cdn.tailwindcss.com"></script>#<link href="output.css" rel="stylesheet">#g' ./src/index.html > ./dist/index.html && cat ./dist/index.html && cat ./dist/output.css && ls ./dist
+
+      # 6. Commits the generated CSS file back to your repository
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: 'gh-workflow: Generate optimized CSS'
+          file_pattern: './dist/index.html ./dist/output.css'
               
       # 6. Sets up Pages
       - name: Setup Pages
