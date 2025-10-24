@@ -93,7 +93,7 @@
             height: 100%;
         }
 
-/* NEW SVG Icon CSS - Replaces the old icon rules */
+        /* NEW SVG Icon CSS - Replaces the old icon rules */
         .icon-cell-yes::after,
         .icon-cell-no::after {
             content: '';
@@ -216,7 +216,7 @@
         <button id="close-lightbox-btn" class="absolute -top-2 -right-2 z-10 w-10 h-10 bg-white rounded-full flex items-center justify-center text-black text-2xl font-bold leading-none hover:bg-gray-200 transition">&times;</button>
         
         <video id="video-iframe"
-               src="why-running.mp4" 
+               src="" 
                playsinline 
                controls>
         </video>
@@ -237,7 +237,7 @@
         <nav class="container mx-auto hidden md:flex justify-center items-center space-x-4 md:space-x-8">
             <a href="#about" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">About Me</a>
             <a href="#platform" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Platform</a>
-            <a href="#positions" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Positions</a>            
+            <a href="#positions" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Positions</a>         
             <a href="#get-involved" class="nav-link bg-purple-800 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition duration-300 font-medium text-lg uppercase">Get Involved</a>
         </nav>
         <div class="md:hidden flex justify-between items-center container mx-auto">
@@ -271,8 +271,22 @@
                     </p>
 
                     <div class="mt-6 text-center md:text-left">
-                        <button id="why-running-btn" class="bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105">
+                        <button id="why-running-btn" 
+                                class="video-btn bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                                data-video-src="why-running.mp4">
                             Why I'm Running
+                        </button>
+                        
+                        <button id="why-purple-btn" 
+                                class="video-btn bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                                data-video-src="why-purple.mp4">
+                            Why My Signs Are Purple
+                        </button>
+                        
+                        <button id="whats-different-btn" 
+                                class="video-btn bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                                data-video-src="whats-different.mp4">
+                            Why I'm Different
                         </button>
                     </div>
                     
@@ -298,9 +312,9 @@
                     </p>
                     <p class="text-gray-600 mb-4">
                         I have been serving on the boards of various organizations for over twenty years-- from non-profit theatre companies, to academic institutions, to Homeowners associations. Previously I've run marketing and operations for a global clothing brand, consulted privately with entrepreneurs building businesses and worked in education for over fifteen years.
-                    </p>
+                    </V>
                     <p class="text-gray-600 mb-4">
-                        I have an MBA from the University of Miami and a BFA from the University of Southern California.                        
+                        I have an MBA from the University of Miami and a BFA from the University of Southern California.                         
                     </p>
                     <p class="text-gray-600 mt-4" id="email-container"></p>
                 </div>
@@ -389,7 +403,7 @@
                     <tr class="border-b hover:bg-purple-50 md:border-b-0">
                         <td data-label="Issue" class="py-4 px-6 font-medium">Revoking the Kanemoto Estates Conservation Easement</td>
                         <td data-label="YES" class="py-4 px-6 text-center"></td>
-                        <td data-label="NO" class="py-4 px-6 text-center icon-cell-no"></td>
+                        <td data-allabel="NO" class="py-4 px-6 text-center icon-cell-no"></td>
                         <td data-label="Why" class="py-4 px-6 full-width-cell">This conservation easement had no expiration date or renewal date in the contract. The consideration given was $10 and implied tax benefits. Taxes are monies used by the government for the public good. If this conservation easement is abolished it is clear disenfranchisement of the public and an example of backroom politics for which I have no appetite.</td>
                     </tr>
                     <tr class="hover:bg-purple-50">
@@ -448,12 +462,6 @@
             <h2 class="text-3xl font-bold text-blue-800 mb-4 text-center">Get Involved</h2>
             <p class="text-gray-600 mb-6 text-center max-w-3xl mx-auto">This campaign is powered by people like you. Check out our upcoming <a href="#events" class="text-purple-800 font-semibold hover:underline">events!</a></p>
 
-            <!-- <div class="text-center mb-8">
-                <a href="#endorsements" class="nav-link text-purple-800 font-semibold hover:underline text-lg">
-                    See who is endorsing the campaign &rarr;
-                </a>
-            </div> -->
-
             <div class="border-b border-gray-200 mb-6">
                 <nav class="-mb-px flex justify-center space-x-6" aria-label="Tabs">
                     <button id="tab-endorsement" class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-purple-800 text-purple-800">
@@ -462,10 +470,7 @@
                     <button id="tab-sign" class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
                         Request a Sign
                     </button>
-                    <!-- <button id="tab-idea" class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                        Share an Idea
-                    </button> -->
-                </nav>
+                    </nav>
             </div>
 
                 <div id="pane-idea" class="tab-pane hidden">
@@ -473,10 +478,6 @@
                     <div class="grid md:grid-cols-2 gap-8 items-center">
                         <div>
                             
-                            <!-- <form action="https://formcarry.com/s/zZeaB_foSML" method="POST">
-                                <div class="mb-4">
-                                    <label for="name" class="block text-gray-700 font-medium mb-1">Full Name</label>
-                                    <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required> -->
                             <form id="idea-form" method="POST">
                             <input type="hidden" name="_subject" value="New Idea Submission!">
                             <input type="hidden" name="_next" value="https://votesage.com/#get-involved?submitted=true"> 
@@ -486,18 +487,14 @@
                                     <input type="text" id="endorse_name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required>
                             </div>
                             <div class="mb-4">
-                                        <label for="email" class="block text-gray-700 font-medium mb-1">Email Address</label>
-                                        <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                                    <label for="email" class="block text-gray-700 font-medium mb-1">Email Address</label>
+                                    <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg" required>
                             </div>
                             <div class="mb-4">
-                                        <label for="message" class="block text-gray-700 font-medium mb-1">Your Idea</label>
-                                        <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
+                                    <label for="message" class="block text-gray-700 font-medium mb-1">Your Idea</label>
+                                    <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
                             </div>
-                                <!-- <div class="honeypot-field">
-                                    <label for="honeypot">Don't fill this out if you're human:</label>
-                                    <input type="text" id="honeypot" name="honeypot">
-                                </div> -->
-                            <button type="submit" class="w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">Submit Idea</button>
+                                <button type="submit" class="w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">Submit Idea</button>
                             </form>
                         </div>
                     
@@ -511,10 +508,6 @@
                     <p class="text-gray-600 mb-8 text-center">Our signs are statement pieces for your yard! Send us your address and we'll deliver one to your doorstep.</p>
                     <div class="grid md:grid-cols-2 gap-8 items-center">
                         <div>
-                            <!-- <form action="https://formcarry.com/s/zZeaB_foSML" method="POST">
-                                <div class="mb-4">
-                                    <label for="name" class="block text-gray-700 font-medium mb-1">Full Name</label>
-                                    <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required> -->
                             <form id="sign-form" method="POST">
                             <input type="hidden" name="_subject" value="New Sign Request!">
                             <input type="hidden" name="_next" value="https://votesage.com/#get-involved?submitted=true"> 
@@ -531,11 +524,7 @@
                                     <label for="message" class="block text-gray-700 font-medium mb-1">Any special instructions?</label>
                                     <textarea id="message" name="message" rows="2" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
                             </div>
-                                <!-- <div class="honeypot-field">
-                                    <label for="honeypot">Don't fill this out if you're human:</label>
-                                    <input type="text" id="honeypot" name="honeypot">
-                                </div> -->
-                            <button type="submit" class="w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">Request Sign</button>
+                                <button type="submit" class="w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">Request Sign</button>
                             </form>
                         </div>
                         <div class="container mx-auto flex items-center justify-center">
@@ -579,7 +568,7 @@
                         </div>
                     </div>
                 </div>
-    
+        
         </div>
     </template>
 
@@ -776,33 +765,45 @@
                 return;
             }
 
-            // --- NEW LIGHTBOX LOGIC ---
-            const whyRunningBtn = e.target.closest('#why-running-btn');
-            if (whyRunningBtn) {
-                e.preventDefault();
+            // --- *** CHANGED THIS SECTION *** ---
+            
+            // 1. Check for *any* button with the 'video-btn' class
+            const videoBtn = e.target.closest('.video-btn');
+            
+            if (videoBtn) {
+                e.preventDefault();
+                
+                // 2. Get the video source from the button's data attribute
+                const videoSrc = videoBtn.dataset.videoSrc;
+                
+                if (videoSrc) {
+                    // 3. Set the video source, load it, and play it
+                    videoIframe.src = videoSrc;
+                    videoIframe.load(); // Tell the video element to load the new source
+                    videoIframe.play(); 
 
-                // Call the .play() method on the <video> element
-                videoIframe.play(); 
-
-                videoLightbox.classList.remove('hidden');
-                videoLightbox.classList.add('flex');
-                return;
-            }
+                    // 4. Show the lightbox
+                    videoLightbox.classList.remove('hidden');
+                    videoLightbox.classList.add('flex');
+                }
+                return;
+            }
 
             const closeBtn = e.target.closest('#close-lightbox-btn');
-            const lightboxBg = e.target.id === 'video-lightbox'; // Check if bg was clicked
-            
-            if (closeBtn || lightboxBg) {
-                e.preventDefault();
-               videoLightbox.classList.add('hidden');
-                videoLightbox.classList.remove('flex');
+            const lightboxBg = e.target.id === 'video-lightbox'; // Check if bg was clicked
+            
+            if (closeBtn || lightboxBg) {
+                e.preventDefault();
+                videoLightbox.classList.add('hidden');
+                videoLightbox.classList.remove('flex');
 
-                // Call .pause() and rewind the video to the start
-                videoIframe.pause();
-                videoIframe.currentTime = 0;
-                
-                return;
-            } 
+                // 5. Pause, rewind, and clear the src on close
+                videoIframe.pause();
+                videoIframe.currentTime = 0;
+                videoIframe.src = ""; // Clear the source
+                
+                return;
+            } 
         });
 
         // Handle browser back/forward buttons
