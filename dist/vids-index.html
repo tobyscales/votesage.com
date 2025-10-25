@@ -880,36 +880,45 @@
         });
 
         // Handle share button click
-        shareButton.addEventListener('click', async () => {
-            // *** MODIFIED SECTION ***
-                const fullVideoSrc = videoIframe.src;
-                // Get just the filename, e.g., "why-running.mp4"
-                const videoFilename = fullVideoSrc.split('/').pop(); 
-            
-                // Look up the specific text, or use a fallback
-                const shareText = videoShareText[videoFilename] || "Check out this video from Riegan Sage's campaign!";
-            
-                const shareData = {
-                    title: 'Vote Sage',
-                    text: shareText, // <-- Now uses the new dynamic text
-                    // We share the main page URL, not the direct video file
-                    url: window.location.origin + window.location.pathname //
-            };
+// Handle share button click
+        shareButton.addEventListener('click', async () => {
+            // Get the full video source (e.g., "https://.../why-running.mp4")
+            const fullVideoSrc = videoIframe.src;
+            
+            // Get just the filename (e.g., "why-running.mp4")
+            const videoFilename = fullVideoSrc.split('/').pop(); 
+            
+            // Create a key from the filename (e.g., "why-running")
+            const videoKey = videoFilename.replace('.mp4', '');
+            
+            // Look up the specific text using the original filename
+            const shareText = videoShareText[videoFilename] || "Check out this video from Riegan Sage's campaign!";
+            
+            // *** THIS IS THE MAIN FIX ***
+            // Build a shareable URL that points to the home page 
+            // and includes a query parameter for the video.
+            const shareUrl = `${window.location.origin + window.location.pathname}#home?video=${videoKey}`;
 
-            try {
-                // Use Web Share API if available
-                if (navigator.share) {
-                    await navigator.share(shareData);
-                    console.log('Video shared successfully');
-                } else {
-                    // Fallback for desktop or unsupported browsers
-                    console.log('Web Share API not supported. Sharing data:', shareData);
-                    alert('Share not supported on this browser. You can copy the link from the address bar!');
-                }
-            } catch (err) {
-                console.error('Error sharing:', err);
-            }
-        });
+            const shareData = {
+                title: 'Vote Sage',
+                text: shareText,
+                url: shareUrl // <-- Use the new shareable URL
+            };
+
+            try {
+                // Use Web Share API if available
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    console.log('Video shared successfully');
+                } else {
+                    // Fallback for desktop or unsupported browsers
+                    console.log('Web Share API not supported. Sharing data:', shareData);
+                    alert('Share not supported on this browser. You can copy the link from the address bar!');
+                }
+            } catch (err) {
+                console.error('Error sharing:', err);
+            }
+        });
         
         // Handle browser back/forward buttons
         window.addEventListener('popstate', (e) => {
@@ -923,7 +932,29 @@
             const initialPage = initialPageWithParams.split('?')[0]; // Ignore URL params
             history.replaceState({page: initialPage}, initialPage, `#${initialPage}`);
             loadPage(initialPage);
-        });
+            
+            // *** THIS IS THE NEW PART ***
+            // Check if there was a query string
+            if (queryString) {
+                const params = new URLSearchParams(queryString);
+                const videoToPlay = params.get('video'); // e.g., "why-running"
+                
+                if (videoToPlay) {
+                    // We must wait for loadPage's 300ms timeout to finish
+                    setTimeout(() => {
+                        // Only try to play if we're on the home page
+                        if (initialPage === 'home') {
+                            // Find the button by its data attribute
+                            // We add the .mp4 back on to match the data-video-src
+                            const videoBtn = document.querySelector(`.video-btn[data-video-src="${videoToPlay}.mp4"]`);
+                            if (videoBtn) {
+                                videoBtn.click(); // Programmatically click the button
+                            }
+                        }
+                    }, 400); // 400ms to be safe (after loadPage's 300ms)
+                }
+            }
+        });
 
     </script>
 </body>
