@@ -229,7 +229,7 @@
                        hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105
                        flex items-center space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 4.186m0-4.186c.203 0 .401.02.59.058a2.25 2.25 0 011.838 2.062M7.217 10.907a2.25 2.25 0 00-1.838 2.062m1.838-2.062a2.25 2.25 0 011.838 2.062m0 0a2.25 2.25 0 01-3.676 0m3.676 0a2.25 2.25 0 011.838 2.062m-1.838-2.062a2.25 2.25 0 00-1.838 2.062m0 0a2.25 2.25 0 003.676 0m-3.676 0a2.25 2.25 0 00-1.838 2.062m1.838 2.062c-.203 0-.401-.02-.59-.058a2.25 2.25 0 00-1.838-2.062m0 0a2.25 2.25 0 003.676 0m-3.676 0a2.25 2.25 0 00-1.838-2.062m1.838 2.062a2.25 2.25 0 011.838 2.062m-1.838-2.062c.203 0 .401.02.59.058a2.25 2.25 0 011.838 2.062m1.838-2.062a2.25 2.25 0 01-1.838-2.062m1.838 2.062a2.25 2.25 0 01-1.838-2.062m0 0a2.25 2.25 0 013.676 0m-3.676 0a2.25 2.25 0 01-1.838-2.062" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
             </svg>
             <span>Share</span>
         </button>
@@ -646,6 +646,13 @@
             endorsements: 'Endorsements'
         };
 
+        // *** NEW: Video Share Text ***
+        const videoShareText = {
+          'why-running.mp4': "Check out this video on why Riegan Sage is running for Longmont City Council!",
+          'why-purple.mp4': "Ever wonder why Riegan Sage's signs are purple? Watch this!",
+          'great-councilperson.mp4': "What makes a great city councilperson? Riegan Sage shares her thoughts in this video."
+        };
+
         // --- Mobile Menu Toggle ---
         function toggleMenu() {
             hamburgerBtn.classList.toggle('is-active');
@@ -876,12 +883,19 @@
 
         // Handle share button click
         shareButton.addEventListener('click', async () => {
-            const videoSrc = videoIframe.src;
-            const shareData = {
-                title: 'Vote Sage',
-                text: "Check out this video from Riegan Sage's campaign!",
-                // We share the main page URL, not the direct video file
-                url: window.location.href 
+            // *** MODIFIED SECTION ***
+                const fullVideoSrc = videoIframe.src;
+                // Get just the filename, e.g., "why-running.mp4"
+                const videoFilename = fullVideoSrc.split('/').pop(); 
+            
+                // Look up the specific text, or use a fallback
+                const shareText = videoShareText[videoFilename] || "Check out this video from Riegan Sage's campaign!";
+            
+                const shareData = {
+                    title: 'Vote Sage',
+                    text: shareText, // <-- Now uses the new dynamic text
+                    // We share the main page URL, not the direct video file
+                    url: window.location.origin + window.location.pathname //
             };
 
             try {
