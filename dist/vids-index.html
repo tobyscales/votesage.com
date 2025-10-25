@@ -212,17 +212,27 @@
 </header>
 
 <div id="video-lightbox" class="fixed inset-0 bg-black/80 z-[100] hidden items-center justify-center transition-opacity duration-300 ease-in-out p-4">
-    <div class="relative bg-black h-[70vh] rounded-lg overflow-hidden shadow-2xl video-modal">
-        <button id="close-lightbox-btn" class="absolute -top-2 -right-2 z-10 w-10 h-10 bg-white rounded-full flex items-center justify-center text-black text-2xl font-bold leading-none hover:bg-gray-200 transition">&times;</button>
+    <div class="relative bg-black h-[70vh] rounded-lg overflow-hidden shadow-2xl video-modal group">
+        <button id="close-lightbox-btn" class="absolute -top-2 -right-2 z-[60] w-10 h-10 bg-white rounded-full flex items-center justify-center text-black text-2xl font-bold leading-none hover:bg-gray-200 transition">&times;</button>
         
         <video id="video-iframe"
                src="" 
                playsinline 
-               controls>
-        </video>
-    </div>
-</div>
+               controls
+               class="z-10"> </video>
 
+        <button id="share-btn" 
+                class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 
+                       bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md 
+                       hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105
+                       flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 4.186m0-4.186c.203 0 .401.02.59.058a2.25 2.25 0 011.838 2.062M7.217 10.907a2.25 2.25 0 00-1.838 2.062m1.838-2.062a2.25 2.25 0 011.838 2.062m0 0a2.25 2.25 0 01-3.676 0m3.676 0a2.25 2.25 0 011.838 2.062m-1.838-2.062a2.25 2.25 0 00-1.838 2.062m0 0a2.25 2.25 0 003.676 0m-3.676 0a2.25 2.25 0 00-1.838 2.062m1.838 2.062c-.203 0-.401-.02-.59-.058a2.25 2.25 0 00-1.838-2.062m0 0a2.25 2.25 0 003.676 0m-3.676 0a2.25 2.25 0 00-1.838-2.062m1.838 2.062a2.25 2.25 0 011.838 2.062m-1.838-2.062c.203 0 .401.02.59.058a2.25 2.25 0 011.838 2.062m1.838-2.062a2.25 2.25 0 01-1.838-2.062m1.838 2.062a2.25 2.25 0 01-1.838-2.062m0 0a2.25 2.25 0 013.676 0m-3.676 0a2.25 2.25 0 01-1.838-2.062" />
+            </svg>
+            <span>Share</span>
+        </button>
+        </div>
+</div>
     <main id="page-content" class="container mx-auto p-4 md:p-8">
     </main>
     
@@ -610,7 +620,8 @@
         const videoLightbox = document.getElementById('video-lightbox');
         const closeLightboxBtn = document.getElementById('close-lightbox-btn');
         const videoIframe = document.getElementById('video-iframe');
-
+        const shareButton = document.getElementById('share-btn'); // <-- NEW
+        
         // Page Content Templates
         const pages = {
             home: document.getElementById('template-home').innerHTML,
@@ -789,6 +800,8 @@
                     videoIframe.load(); // Tell the video element to load the new source
                     videoIframe.play(); 
 
+                    shareButton.classList.add('hidden'); // <-- MODIFIED: Hide share btn on new play
+
                     // 4. Show the lightbox
                     videoLightbox.classList.remove('hidden');
                     videoLightbox.classList.add('flex');
@@ -808,11 +821,44 @@
                 videoIframe.pause();
                 videoIframe.currentTime = 0;
                 videoIframe.src = ""; // Clear the source
-                
+
+                shareButton.classList.add('hidden'); // <-- MODIFIED: Hide share btn on close
                 return;
             } 
         });
 
+// --- NEW: Video and Share Button Listeners ---
+
+        // Show share button when video ends
+        videoIframe.addEventListener('ended', () => {
+            shareButton.classList.remove('hidden');
+        });
+
+        // Handle share button click
+        shareButton.addEventListener('click', async () => {
+            const videoSrc = videoIframe.src;
+            const shareData = {
+                title: 'Vote Sage',
+                text: "Check out this video from Riegan Sage's campaign!",
+                // We share the main page URL, not the direct video file
+                url: window.location.href 
+            };
+
+            try {
+                // Use Web Share API if available
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    console.log('Video shared successfully');
+                } else {
+                    // Fallback for desktop or unsupported browsers
+                    console.log('Web Share API not supported. Sharing data:', shareData);
+                    alert('Share not supported on this browser. You can copy the link from the address bar!');
+                }
+            } catch (err) {
+                console.error('Error sharing:', err);
+            }
+        });
+        
         // Handle browser back/forward buttons
         window.addEventListener('popstate', (e) => {
             const page = e.state ? e.state.page : 'home';
