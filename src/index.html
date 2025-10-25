@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riegan Sage | Longmont At-Large City Councilmember</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S749PTD4W9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-S749PTD4W9', {
+        'send_page_view': false // This disables the automatic page_view
+      });
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Main body layout */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            /* Add padding to prevent content being hidden by sticky mobile footer */
+            padding-bottom: 72px; /* Adjust based on footer height */
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
+            footer {
+                position: static; /* Footer is not sticky on desktop */
+            }
+        }
+
+        /* Sticky Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        /* Main content flex container */
+        #page-content {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero section fills available space */
+        .hero-section {
+            flex-grow: 1;
+        }
+        
+        /* Special styling for homepage main content */
+        main.is-home {
+            padding: 0;
+            max-width: none;
+        }
+        /* This CSS hides the honeypot field */
+        .honeypot-field {
+            display: none;
+        }
+        /* NEW - Responsive Video Container */
+        
+        /* * 1. This new class applies the aspect ratio.
+         * It's on the div that already has h-[70vh].
+         * The browser will see "height is 70vh" and 
+         * "aspect-ratio is 9/16" and automatically
+         * calculate the correct width.
+         */
+        .video-modal {
+            aspect-ratio: 9 / 16;
+        }
+        
+        /* * 2. This tells the video to fill the modal
+         * container perfectly.
+         */
+        .video-modal video {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* NEW SVG Icon CSS - Replaces the old icon rules */
+        .icon-cell-yes::after,
+        .icon-cell-no::after {
+            content: '';
+            display: block;
+            width: 2rem;  /* 32px */
+            height: 2rem; /* 32px */
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .icon-cell-yes::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%2322c55e'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M4.5 12.75l6 6 9-13.5' /%3E%3C/svg%3E");
+        }
+
+        .icon-cell-no::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%23ef4444'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636' /%3E%3C/svg%3E");
+        }
+
+        /* Center the icons on desktop */
+        @media (min-width: 768px) {
+            .icon-cell-yes::after,
+            .icon-cell-no::after {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* Hamburger Menu Toggle Animation */
+        #hamburger-btn.is-active .block:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+        #hamburger-btn.is-active .block:nth-child(2) {
+            opacity: 0;
+        }
+        #hamburger-btn.is-active .block:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+        #hamburger-btn .block {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Responsive Tables (Card layout on mobile) */
+        @media (max-width: 767px) {
+            .responsive-table thead {
+                display: none;
+            }
+            .responsive-table tr {
+                display: block;
+                border: 1px solid #e2e8f0;
+                border-radius: 0.5rem;
+                margin-bottom: 1rem;
+                padding: 1rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                background-color: #fff;
+            }
+            .responsive-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #edf2f7;
+                text-align: right;
+            }
+            .responsive-table td:last-child {
+                border-bottom: none;
+            }
+            .responsive-table td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: #4a5568;
+                margin-right: 1rem;
+                text-align: left;
+            }
+            /* Specific adjustments for positions table's icon */
+            .responsive-table td .icon-cell-no, .responsive-table td .icon-cell-yes {
+                margin: 0; /* Remove mx-auto */
+            }
+            /* For the 'Why' / 'Description' column, make it stack vertically */
+             .responsive-table td.full-width-cell {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                padding-top: 0.75rem;
+             }
+             .responsive-table td.full-width-cell::before {
+                 margin-bottom: 0.5rem;
+                 color: #2d3748;
+                 font-size: 1.125rem;
+             }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+<div class="w-full bg-gray-900 text-white text-xs text-center p-2">
+    Paid for by VoteSage, a committee dedicated to electing Riegan Sage to Longmont's City Council and Authorized by Riegan Sage.
+</div>
+
+<header id="main-header" class="bg-purple-800 shadow-md">
+    <a href="#home" id="header-link" class="block cursor-pointer">
+        <div class="container mx-auto flex items-center justify-center md:justify-between py-4 px-4 md:px-8">
+            
+            <h1 class="hidden md:block text-4xl md:text-5xl font-bold uppercase text-white">Vote Sage</h1>
+
+            <div>
+                <p class="text-xl md:text-xl lg:text-2xl font-semibold tracking-wider text-white text-center">Make Longmont the best place to live<span class="md:hidden"> </span><br class="hidden md:block">and a great place to visit!</p>
+            </div>
+
+            <div class="hidden md:block invisible" aria-hidden="true">
+                 <h1 class="text-4xl md:text-5xl font-bold uppercase text-white">Vote Sage</h1>
+            </div>
+
+        </div>
+    </a>
+</header>
+
+<div id="video-lightbox" class="fixed inset-0 bg-black/80 z-[100] hidden items-center justify-center transition-opacity duration-300 ease-in-out p-4">
+    <div class="relative bg-black h-[70vh] rounded-lg overflow-hidden shadow-2xl video-modal group">
+        <button id="close-lightbox-btn" class="absolute -top-2 -right-2 z-[60] w-10 h-10 bg-white rounded-full flex items-center justify-center text-black text-2xl font-bold leading-none hover:bg-gray-200 transition">&times;</button>
+        
+        <video id="video-iframe"
+               src="" 
+               playsinline 
+               controls
+               class="z-10"> </video>
+
+        <button id="share-btn" 
+                class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 
+                       bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md 
+                       hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105
+                       flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+            </svg>
+            <span>Share</span>
+        </button>
+        </div>
+</div>
+    <main id="page-content" class="container mx-auto p-4 md:p-8">
+    </main>
+    
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 z-40 hidden flex-col items-center justify-center space-y-8 transition-opacity duration-300">
+        <a href="#about" class="nav-link-mobile text-white text-3xl uppercase font-bold">About Me</a>
+        <a href="#platform" class="nav-link-mobile text-white text-3xl uppercase font-bold">Platform</a>
+        <a href="#positions" class="nav-link-mobile text-white text-3xl uppercase font-bold">Positions</a>
+        <!--<a href="#events" class="nav-link-mobile text-white text-3xl uppercase font-bold">Events</a>-->
+        <a href="#videos" class="nav-link-mobile text-white text-3xl uppercase font-bold">Videos</a>
+    </div>
+
+    <footer class="bg-gray-800 text-white p-4 z-50 fixed bottom-0 w-full md:static">
+        <nav class="container mx-auto hidden md:flex justify-center items-center space-x-4 md:space-x-8">
+            <a href="#about" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">About Me</a>
+            <a href="#platform" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Platform</a>
+            <a href="#positions" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Positions</a>         
+            <a href="#get-involved" class="nav-link bg-purple-800 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition duration-300 font-medium text-lg uppercase">Get Involved</a>
+        </nav>
+        <div class="md:hidden flex justify-between items-center container mx-auto">
+             <button id="hamburger-btn" class="z-50 space-y-2">
+                <span class="block w-8 h-0.5 bg-white"></span>
+                <span class="block w-8 h-0.5 bg-white"></span>
+                <span class="block w-8 h-0.5 bg-white"></span>
+            </button>
+            <a href="#get-involved" class="nav-link bg-purple-800 text-white px-6 py-2 rounded-md hover:bg-purple-700 transition duration-300 font-medium text-lg uppercase">Get Involved</a>
+        </div>
+    </footer>
+
+
+    <template id="template-home">
+        <div class="hero-section flex flex-col justify-center p-8
+                                         md:flex-row md:justify-end md:items-center md:p-0 relative
+                                         bg-white dark:bg-black 
+                                         md:bg-[url('./front-pg-md-2k.jpg')] md:bg-cover md:bg-center">
+            
+            <div class="relative w-full h-full flex flex-col justify-center items-center md:flex-row md:justify-end">
+                <div class="md:hidden mb-8">
+                    <div class="p-2 bg-black rounded-full shadow-lg">
+                        <img src="front-pg-sm.jpg" alt="Portrait: Riegan Sage" class="w-40 h-40 rounded-full border-4 border-white">
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-5/12 md:mr-24 text-center md:text-left md:p-12 md:bg-black/70 md:rounded-xl">
+                    <p class="text-xl md:text-2xl text-gray-800 dark:text-gray-100 md:text-white font-light leading-relaxed">
+                        Hi! I'm <span class="font-bold">Riegan Sage</span>, a nominee for <span class="font-bold">At-Large Councilmember</span> in Longmont. 
+                        As a city, we need to choose both what is important to us to preserve and how we want to grow. We should build on our strengths, connecting the pieces that are already successful. It is our responsibility to envision and articulate what we want Longmont to be and to collaborate creatively to bring that to fruition. 
+                    </p>
+
+                    <div class="mt-6 text-center md:text-left">
+                        <button id="why-running-btn" 
+                                class="video-btn bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                                data-video-src="why-running.mp4">
+                            Why I'm Running
+                        </button>
+                        
+                        <button id="why-purple-btn" 
+                                class="video-btn bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                                data-video-src="why-purple.mp4">
+                            Why My Signs Are Purple
+                        </button>
+                        
+                        <!-- <button id="whats-different-btn" 
+                                class="video-btn bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                                data-video-src="whats-different.mp4">
+                            Why I'm Different
+                        </button> 
+
+                        <button id="great-councilperson-btn" 
+                                class="video-btn bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                                data-video-src="great-councilperson.mp4">
+                            What Makes a Great City Councilperson
+                        </button> -->
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-about">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-6">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="w-full md:w-1/3">
+                    <img src="./with-horses.jpg" alt="Riegan Sage with Family" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <p class="text-gray-600 mb-4">I’ve lived in Longmont for four years but it only took a few days staying here to see how special it is. 
+                        The history, the neighborhoods, the people who call this place home.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        I want to support Longmont entrepreneurs bringing their businesses to life here. 
+                        That happens when we make Longmont the best place to live- with <strong>affordable</strong> homes (affordable meaning you can still afford to use the amenities in our city, not just scraping together rent or a mortgage)- and a great place to visit.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        I have been serving on the boards of various organizations for over twenty years-- from non-profit theatre companies, to academic institutions, to Homeowners associations. Previously I've run marketing and operations for a global clothing brand, consulted privately with entrepreneurs building businesses and worked in education for over fifteen years.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        I have an MBA from the University of Miami and a BFA from the University of Southern California.                         
+                    </p>
+                    <p class="text-gray-600 mt-4" id="email-container"></p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="template-platform">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center">Challenges and Opportunities</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Housing and Affordability</h3>
+<p class="text-gray-600"><strong>Let’s build more housing.</strong> The only way to make housing more affordable and to ensure against rising houseless population is to make more housing available. I am against sprawl. I am for: increasing the mix and variety of housing, revamping unused industrial space, building smaller homes for sale and rent, getting creative and offering direct incentives and reducing fees to homeowners who want to build ADUs for long term rentals.
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Tourism and Business</h3>
+                    <p class="text-gray-600"><strong>Let’s bring more people to our businesses.</strong> Our local businesses are wonderful and in order to thrive they need more patronage. We should focus on attracting visitors to Longmont, both from neighboring cities as well as from afar. We have an incredible opportunity with the  Sundance Film Festival moving to Boulder in 2027, and we need to be ready to seize it. Let’s make Longmont the BEST place to live, and a great place to visit.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Measure what matters</h3>
+<p class="text-gray-600"><strong>Let’s reimagine how we measure success.</strong> I believe we need to create new metrics with which to measure our success as a city. What we measure should be decided by Longmont citizens and should point toward the future we envision. Some examples might be: how many new public transit adopters we have, families we’ve kept in their homes, small business success rates, acreage of green space acquired, etc. What we measure dictates where our attention goes. </p>
+                </div>
+              <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Agriculture</h3>
+                    <p class="text-gray-600"><strong>Let’s lead in agricultural innovation and incorporate it into our city planning.</strong> Longmont's history is steeped in agriculture. We rent out 1000 acres of agricultural land and we’ve voted to allocate more money towards acquiring green space and farm land. Let’s partner with and attract innovative farmers who take stewardship seriously. Let’s build an agritourism destination. Let’s consider agrihub neighborhoods. Let’s feed our community. Let’s be self reliant.
+</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Traffic</h3>
+                    <p class="text-gray-600"><strong>Let’s grow together.</strong> As Longmont’s population increases, traffic will continue to grow. By investing in the right mix of intercity and intracity transport for the routes that people need we can make a multi-modal Longmont for all. Bike lanes, bikeshares, free high-density bus routes and our innovative RIDE Longmont program are good additions to the cars on the road, As autonomous vehicles become more prevalent, I would also be in favor of adopting autonomous shuttles to supplement travel to neighboring cities and between hubs within Longmont as long as it serves our residents to do so.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Energy and Resource Management</h3>
+                    <p class="text-gray-600"><strong>Let’s be smart.</strong> Energy costs will continue to rise for the foreseeable future. As energy became cheaper in the last century, we became wasteful and complacent. As costs have gone up, we have not reexamined our own usage. We need to both offer support to our neighbors who are struggling, as well as incentivize energy and water conservation. We can do this by creating graduated energy usage programs and investing in renewables at the city level.</p>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+<template id="template-positions">
+    <div class="bg-white p-6 md:p-8 rounded-lg shadow-md md:bg-transparent md:shadow-none">
+        <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center">My Positions</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white shadow-md rounded-lg responsive-table">
+                <thead class="bg-purple-800 text-white">
+                    <tr>
+                        <th class="py-4 px-6 text-left text-lg font-semibold">Issue</th>
+                        <th class="py-4 px-6 text-center text-lg font-semibold w-24">YES</th>
+                        <th class="py-4 px-6 text-center text-lg font-semibold w-24">NO</th>
+                        <th class="py-4 px-6 text-left text-lg font-semibold">Why</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700">
+                    <tr class="border-b hover:bg-purple-50 md:border-b-0">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Plan for Sundance Film Festival</td>
+                        <td data-label="YES" class="py-4 px-6 text-center icon-cell-yes"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">We have a once-in-a-generation opportunity to define ourselves as a welcoming sister city when Boulder hosts the Sundance Film Festival starting in 2027. Council should take immediate steps to engage with the Sundance Commission, Visit Longmont and other key stakeholders to ensure our residents enjoy the benefits this increased tourism will bring while ensuring minimal disruption to residents’ daily life.</td>
+                    </tr>
+                    <tr class="border-b hover:bg-purple-50 md:border-b-0">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Support Local Agriculture</td>
+                        <td data-label="YES" class="py-4 px-6 text-center icon-cell-yes"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">We have beautiful farmlands all around Longmont, but we must take measures to protect them or they will be lost to developers. We have a unique opportunity to become nationwide leaders with agrivoltaics and regenerative farming. Let's invest in businesses like these to create a future where our food supply is local, sustainable, and where those investments preserve the beautiful open space which currently surrounds us.</td>
+                    </tr>
+                    <tr class="border-b hover:bg-purple-50 md:border-b-0">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Invest in the Airport</td>
+                        <td data-label="YES" class="py-4 px-6 text-center icon-cell-yes"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">With the future of Boulder's Municipal Airport uncertain, investing in Vance Brand is no longer an option-- it's a necessity. We need to start with revisiting the Airport Master Plan (now over ten years old) and proceed with engagement from all parts of our community.</td>
+                    </tr>
+                    <tr class="border-b hover:bg-purple-50 md:border-b-0">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Ranked Choice Voting</td>
+                        <td data-label="YES" class="py-4 px-6 text-center icon-cell-yes"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">Proportional Representation Rank Choice Voting (with fractional surplus transfer in multi winner races and Instant Runoff Rank Choice Voting for single winner races) is a significantly better voting system than what we have now. Transparency will be crucial, with round-by-round results published for all to see how the process works. The Boulder County Clerk’s office is already able to process and report these types of RCV elections, so I am in favor of putting RCV on the ballot for voters to choose for themselves. I would also like to see us implement it incrementally -- say for three election cycles -- to gauge voter satisfaction and be able to make adjustments as needed.</td>
+                    </tr>
+                    <tr class="border-b hover:bg-purple-50 md:border-b-0">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Creating a City-Wide Minimum Wage</td>
+                        <td data-label="YES" class="py-4 px-6 text-center"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center icon-cell-no"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">A living wage is crucial to our success as a community, but our small businesses are crucial to our success as a city. Seventy-one percent of our small businesses in Longmont are comprised of fewer than six people. And guess what? Most of them already pay above the current minimum wage, with an average salary of $81k/year. So I would support raising the minimum wage on businesses of a certain size (which is currently not legal in Colorado-- we'd need to change legislation at the state level first), but I can't support a blanket increase which will do so much damage to our neighbors.</td>
+                    </tr>
+                    <tr class="border-b hover:bg-purple-50 md:border-b-0">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Revoking the Kanemoto Estates Conservation Easement</td>
+                        <td data-label="YES" class="py-4 px-6 text-center"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center icon-cell-no"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">This conservation easement had no expiration date or renewal date in the contract. The consideration given was $10 and implied tax benefits. Taxes are monies used by the government for the public good. If this conservation easement is abolished it is clear disenfranchisement of the public and an example of backroom politics for which I have no appetite.</td>
+                    </tr>
+                    <tr class="hover:bg-purple-50">
+                        <td data-label="Issue" class="py-4 px-6 font-medium">Distel-Tull Land Swap</td>
+                        <td data-label="YES" class="py-4 px-6 text-center"></td>
+                        <td data-label="NO" class="py-4 px-6 text-center icon-cell-no"></td>
+                        <td data-label="Why" class="py-4 px-6 full-width-cell">The voters of Longmont decided to invest in more open space, not play games with land we own. If City Council were to act unilaterally in engaging in the landswap it would set a dangerous precedent and we would understandably lose public trust (when it is already at such a low). Let's put the matter on the ballot and let the voters decide. There are no pressing contracts or firm offers on the table.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
+    
+    <template id="template-events">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md md:bg-transparent md:shadow-none">
+            <h2 class="text-3xl font-bold text-blue-800 mb-6">Upcoming Events</h2>
+            <p class="text-gray-600 mb-8">Come say hello, ask questions, and share your ideas for Longmont's future. I look forward to meeting you!</p>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white responsive-table">
+                    <thead class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                        <tr>
+                            <th class="py-3 px-6 text-left">Date</th>
+                            <th class="py-3 px-6 text-left">Event Name</th>
+                            <th class="py-3 px-6 text-left">Location</th>
+                            <th class="py-3 px-6 text-left">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 text-sm font-light">
+                        <tr class="border-b border-gray-200 hover:bg-gray-100 md:border-b">
+                            <td data-label="Date" class="py-3 px-6 text-left whitespace-nowrap">Oct 11, 2025 @ 9am</td>
+                            <td data-label="Event" class="py-3 px-6 text-left">Pumpkin Pie Festival</td>
+                            <td data-label="Location" class="py-3 px-6 text-left">Thompson Square Park</td>
+                            <td data-label="Description" class="py-3 px-6 text-left full-width-cell">Alex Kalkhofer has invited me to join him and our fellow candidate John Lembke to discuss local issues.</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-100 md:border-b">
+                            <td data-label="Date" class="py-3 px-6 text-left whitespace-nowrap">Oct 14, 2025 @ 6:30pm</td>
+                            <td data-label="Event" class="py-3 px-6 text-left">Cider Sipping with Riegan Sage</td>
+                            <td data-label="Location" class="py-3 px-6 text-left">St Vrain Cidery</td>
+                            <td data-label="Description" class="py-3 px-6 text-left full-width-cell">Join candidate Riegan Sage for a glass of cider and an opportunity to share your concerns and discuss what's next for the city of Longmont.</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-100 md:border-b-0">
+                            <td data-label="Date" class="py-3 px-6 text-left whitespace-nowrap">Oct 15, 2025 @ 11am</td>
+                            <td data-label="Event" class="py-3 px-6 text-left">Caretaker's Picnic</td>
+                            <td data-label="Location" class="py-3 px-6 text-left">Flanders Park</td>
+                            <td data-label="Description" class="py-3 px-6 text-left full-width-cell">A chance for anyone caring for children to come and share your concerns with At-Large Candidate Riegan Sage. Pizza and drinks provided, and there's a playground nearby so kids can roam while we chat!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-videos">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center">Videos</h2>
+            <div class="flex flex-col items-center space-y-4 max-w-md mx-auto">
+                
+                <button class="video-btn w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                        data-video-src="why-running.mp4">
+                    Why I'm Running
+                </button>
+                
+                <button class="video-btn w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                        data-video-src="why-purple.mp4">
+                    Why My Signs Are Purple
+                </button>
+
+                <button class="video-btn w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                        data-video-src="whats-different.mp4">
+                    Why I'm Different
+                </button> 
+
+                <button class="video-btn w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                        data-video-src="great-councilperson.mp4">
+                    What Makes a Great City Councilperson
+                </button>
+
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-get-involved">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-4 text-center">Get Involved</h2>
+            <p class="text-gray-600 mb-6 text-center max-w-3xl mx-auto">This campaign is powered by people like you. Check out our upcoming <a href="#events" class="text-purple-800 font-semibold hover:underline">events!</a></p>
+
+            <div class="border-b border-gray-200 mb-6">
+                <nav class="-mb-px flex justify-center space-x-6" aria-label="Tabs">
+                    <button id="tab-endorsement" class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-purple-800 text-purple-800">
+                        Submit Endorsement
+                    </button>
+                    <button id="tab-sign" class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                        Request a Sign
+                    </button>
+                    </nav>
+            </div>
+
+                <div id="pane-idea" class="tab-pane hidden">
+                    <p class="text-gray-600 mb-8 text-center">NextLight is one of Longmont's best ideas. What's next? Agriculture? Solar batteries? Quantum computing? We want your input!</p>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            
+                            <form id="idea-form" method="POST">
+                            <input type="hidden" name="_subject" value="New Idea Submission!">
+                            <input type="hidden" name="_next" value="https://votesage.com/#get-involved?submitted=true"> 
+                            <input type="text" name="_honey" style="display:none"> 
+                            <div class="mb-4">
+                                    <label for="endorse_name" class="block text-gray-700 font-medium mb-1">Full Name</label>
+                                    <input type="text" id="endorse_name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                            </div>
+                            <div class="mb-4">
+                                    <label for="email" class="block text-gray-700 font-medium mb-1">Email Address</label>
+                                    <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                            </div>
+                            <div class="mb-4">
+                                    <label for="message" class="block text-gray-700 font-medium mb-1">Your Idea</label>
+                                    <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
+                            </div>
+                                <button type="submit" class="w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">Submit Idea</button>
+                            </form>
+                        </div>
+                    
+                        <div>
+                            <img src="./road-ahead.jpg" alt="A road unfolding into the mountains." class="rounded-lg shadow-lg w-full">
+                        </div>
+                    </div>
+                </div>
+
+            <div id="pane-sign" class="tab-pane hidden">
+                    <p class="text-gray-600 mb-8 text-center">Our signs are statement pieces for your yard! Send us your address and we'll deliver one to your doorstep.</p>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <form id="sign-form" method="POST">
+                            <input type="hidden" name="_subject" value="New Sign Request!">
+                            <input type="hidden" name="_next" value="https://votesage.com/#get-involved?submitted=true"> 
+                            <input type="text" name="_honey" style="display:none"> 
+                            <div class="mb-4">
+                                <label for="endorse_name" class="block text-gray-700 font-medium mb-1">Full Name</label>
+                                <input type="text" id="endorse_name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                            </div>
+                            <div class="mb-4">
+                                    <label for="address" class="block text-gray-700 font-medium mb-1">Address</label>
+                                    <input type="address" id="address" name="address" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                            </div>
+                            <div class="mb-4">
+                                    <label for="message" class="block text-gray-700 font-medium mb-1">Any special instructions?</label>
+                                    <textarea id="message" name="message" rows="2" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
+                            </div>
+                                <button type="submit" class="w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">Request Sign</button>
+                            </form>
+                        </div>
+                        <div class="container mx-auto flex items-center justify-center">
+                            <img src="./yard-sign.jpg" alt="A Vote Sage yard sign in the grass." class="rounded-lg shadow-lg" width="320px">
+                        </div>
+                    </div>
+            </div>
+
+                
+                <div id="pane-endorsement" class="tab-pane">
+                    <p class="text-gray-600 mb-8 text-center max-w-2xl mx-auto">A public endorsement is one of the most powerful ways to show your support. Thank you for considering lending your name to the campaign!</p>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                        <form id="endorsement-form" method="POST">
+                            <input type="hidden" name="_subject" value="New Endorsement Submission!">
+                            <input type="hidden" name="_next" value="https://votesage.com/#get-involved?submitted=true">
+                            <input type="text" name="_honey" style="display:none"> 
+                            <div class="mb-4">
+                                <label for="endorse_name" class="block text-gray-700 font-medium mb-1">Full Name</label>
+                                <input type="text" id="endorse_name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="endorse_affiliation" class="block text-gray-700 font-medium mb-1">Title / Affiliation (Optional)</label>
+                                <input type="text" id="endorse_affiliation" name="affiliation" placeholder="e.g., Longmont Resident, Small Business Owner" class="w-full p-2 border border-gray-300 rounded-lg">
+                            </div>
+                            <div class="mb-6">
+                                <label for="endorsement_text" class="block text-gray-700 font-medium mb-1">Endorsement</label>
+                                <textarea id="endorsement_text" name="endorsement" rows="5" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Share why you support Riegan..." required></textarea>
+                            </div>
+                            <div class="mb-6">
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="permission" value="yes" class="h-4 w-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500" required>
+                                    <span class="ml-2 text-gray-700">I grant permission for my name, title, and quote to be used in campaign materials.</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">Submit Endorsement</button>
+                        </form>
+                        </div>
+                        <div>
+                            <img src="./unity2.jpg" width=300px alt="Candidate Riegan Sage at Unity in the Community." class="rounded-lg shadow-lg w-full">
+                        </div>
+                    </div>
+                </div>
+        
+        </div>
+    </template>
+
+     <template id="template-endorsements">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-4 text-center">Community Endorsements</h2>
+            <p class="text-gray-600 mb-10 text-center max-w-3xl mx-auto">I'm honored to have the support of these community members, leaders, and organizations who believe in a bright future for Longmont.</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-purple-50 p-6 rounded-lg shadow-lg flex flex-col">
+                    <blockquote class="text-gray-700 italic flex-grow">"Riegan has the vision and the practical experience to guide Longmont forward. Her focus on smart growth and support for local businesses is exactly what we need."</blockquote>
+                    <cite class="block text-right mt-4 not-italic font-semibold text-purple-900">Jane Doe, Small Business Owner</cite>
+                </div>
+                <div class="bg-purple-50 p-6 rounded-lg shadow-lg flex flex-col">
+                    <blockquote class="text-gray-700 italic flex-grow">"As a long-time resident, I'm thrilled to support a candidate who respects Longmont's history while actively planning for a sustainable and innovative future. Riegan listens, and she has great ideas."</blockquote>
+                    <cite class="block text-right mt-4 not-italic font-semibold text-purple-900">John Smith, 30-Year Longmont Resident</cite>
+                </div>
+                <div class="bg-purple-50 p-6 rounded-lg shadow-lg flex flex-col">
+                    <blockquote class="text-gray-700 italic flex-grow">"The focus on making Longmont a great place to live AND a great place to visit is crucial. Riegan understands that a thriving local economy benefits everyone."</blockquote>
+                    <cite class="block text-right mt-4 not-italic font-semibold text-purple-900">Michael Williams, Local Teacher</cite>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <script>
+        const pageContent = document.getElementById('page-content');
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        // NEW Lightbox variables
+        const videoLightbox = document.getElementById('video-lightbox');
+        const closeLightboxBtn = document.getElementById('close-lightbox-btn');
+        const videoIframe = document.getElementById('video-iframe');
+        const shareButton = document.getElementById('share-btn'); // <-- NEW
+        
+        // Page Content Templates
+        const pages = {
+            home: document.getElementById('template-home').innerHTML,
+            about: document.getElementById('template-about').innerHTML,
+            platform: document.getElementById('template-platform').innerHTML,
+            positions: document.getElementById('template-positions').innerHTML,
+            events: document.getElementById('template-events').innerHTML,
+            videos: document.getElementById('template-videos').innerHTML, 
+            'get-involved': document.getElementById('template-get-involved').innerHTML,
+            endorsements: document.getElementById('template-endorsements').innerHTML,
+        };
+
+        // *** NEW: Titles for Google Analytics ***
+        const pageTitles = {
+            home: 'Home',
+            about: 'About Me',
+            platform: 'Platform',
+            positions: 'Positions',
+            events: 'Events',
+            videos: 'Videos',
+            'get-involved': 'Get Involved',
+            endorsements: 'Endorsements'
+        };
+
+        // *** NEW: Video Share Text ***
+        const videoShareText = {
+          'why-running.mp4': "Check out this video on why Riegan Sage is running for Longmont City Council!",
+          'why-purple.mp4': "Ever wonder why Riegan Sage's signs are purple? Watch this!",
+          'whats-different.mp4': "Here's what makes Riegan Sage different. (Video)", // <-- ADD THIS
+          'great-councilperson.mp4': "What makes a great city councilperson? Riegan Sage shares her thoughts in this video."
+        };
+
+        // --- Mobile Menu Toggle ---
+        function toggleMenu() {
+            hamburgerBtn.classList.toggle('is-active');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+
+        // --- Dynamic Content Setup ---
+
+        function addEmailLink() {
+            const emailContainer = document.getElementById('email-container');
+            if (emailContainer) {
+                const user = 'riegan';
+                const domain = 'votesage.com';
+                const emailAddress = `${user}@${domain}`;
+                emailContainer.innerHTML = 'Have a question? You can reach me at: ';
+                const link = document.createElement('a');
+                link.href = 'mailto:' + emailAddress;
+                link.textContent = emailAddress;
+                link.className = 'text-purple-800 font-semibold hover:underline';
+                emailContainer.appendChild(link);
+            }
+        }
+
+        function setupFormActions() {
+            const endorsementForm = document.getElementById('endorsement-form');
+            const ideaForm = document.getElementById('idea-form');
+            const signForm = document.getElementById('sign-form');
+            
+            if (endorsementForm) {
+                const user = 'riegan';
+                const domain = 'votesage.com';
+                endorsementForm.action = `https://formsubmit.co/${user}@${domain}`;
+                ideaForm.action = `https://formsubmit.co/${user}@${domain}`;
+                signForm.action = `https://formsubmit.co/${user}@${domain}`;
+            }
+        }
+
+        // --- Routing and Page Loading ---
+        function loadPage(page, callback) {
+            pageContent.style.animation = 'fadeOut 0.3s ease-in-out';
+            
+            setTimeout(() => {
+                if (page === 'home') {
+                    pageContent.classList.add('is-home');
+                    pageContent.classList.remove('container', 'mx-auto', 'p-4', 'md:p-8');
+                } else {
+                    pageContent.classList.remove('is-home');
+                    pageContent.classList.add('container', 'mx-auto', 'p-4', 'md:p-8');
+                }
+
+                pageContent.innerHTML = pages[page] || pages['home'];
+                pageContent.style.animation = 'fadeIn 0.5s ease-in-out';
+                updateActiveLink(page);
+                window.scrollTo(0, 0);
+
+                // *** NEW: Send Page View to Google Analytics ***
+                if (typeof gtag === 'function') {
+                    const newTitle = pageTitles[page] || 'Home';
+                    const newPath = page === 'home' ? window.location.pathname : window.location.pathname + `#${page}`;
+                    
+                    gtag('event', 'page_view', {
+                        page_title: newTitle,
+                        page_path: newPath,
+                        page_location: window.location.origin + newPath
+                    });
+                }
+                // *** END Google Analytics ***
+                
+                // Set up dynamic content after page loads
+                addEmailLink(); 
+                setupFormActions();
+
+                if (typeof callback === 'function') {
+                    callback();
+                }
+                
+            }, 300);
+        }
+        
+        function updateActiveLink(activePage) {
+            const allNavLinks = document.querySelectorAll('.nav-link, .nav-link-mobile');
+            allNavLinks.forEach(link => {
+                const linkPage = link.getAttribute('href').substring(1);
+
+                if (link.classList.contains('nav-link')) {
+                    link.classList.remove('text-blue-300', 'font-bold');
+                    if (!link.href.includes('get-involved')) {
+                        link.classList.add('text-white');
+                    }
+                }
+                
+                if (link.classList.contains('nav-link-mobile')) {
+                    link.classList.remove('text-purple-400');
+                    link.classList.add('text-white');
+                }
+
+                if (linkPage === activePage) {
+                     if (link.classList.contains('nav-link') && !link.href.includes('get-involved')) {
+                         link.classList.add('text-blue-300', 'font-bold');
+                         link.classList.remove('text-white');
+                     }
+                     if (link.classList.contains('nav-link-mobile')) {
+                          link.classList.add('text-purple-400');
+                          link.classList.remove('text-white');
+                     }
+                    link.setAttribute('aria-current', 'page');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        // --- Navigation and Tab Handling Functions ---
+
+        function handleNav(element) {
+            if (!mobileMenu.classList.contains('hidden')) {
+                toggleMenu();
+            }
+            const page = element.getAttribute('href').substring(1);
+            history.pushState({page}, page, `#${page}`);
+            loadPage(page);
+        }
+
+        function handleTabClick(clickedButton) {
+            const tabContainer = clickedButton.closest('nav');
+            const allTabButtons = tabContainer.querySelectorAll('.tab-btn');
+            const paneContainer = pageContent.querySelector('.tab-pane').parentElement;
+            const allTabPanes = paneContainer.querySelectorAll('.tab-pane');
+
+            allTabButtons.forEach(button => {
+                button.classList.remove('border-purple-800', 'text-purple-800');
+                button.classList.add('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+            });
+            allTabPanes.forEach(pane => {
+                pane.classList.add('hidden');
+            });
+
+            clickedButton.classList.add('border-purple-800', 'text-purple-800');
+            clickedButton.classList.remove('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+
+            const targetPaneId = 'pane-' + clickedButton.id.split('-')[1];
+            const targetPane = document.getElementById(targetPaneId);
+            if (targetPane) {
+                targetPane.classList.remove('hidden');
+            }
+        }
+
+        // --- MASTER EVENT LISTENER (EVENT DELEGATION) ---
+        
+        document.body.addEventListener('click', (e) => {
+            const navLink = e.target.closest('.nav-link, .nav-link-mobile, #header-link');
+            if (navLink) {
+                e.preventDefault();
+                handleNav(navLink);
+                return;
+            }
+
+            const tabButton = e.target.closest('.tab-btn');
+            if (tabButton) {
+                e.preventDefault();
+                handleTabClick(tabButton);
+                return;
+            }
+
+            // --- *** CHANGED THIS SECTION *** ---
+            
+            // 1. Check for *any* button with the 'video-btn' class
+            const videoBtn = e.target.closest('.video-btn');
+            
+            if (videoBtn) {
+                e.preventDefault();
+                
+                // 2. Get the video source from the button's data attribute
+                const videoSrc = videoBtn.dataset.videoSrc;
+                const videoTitle = videoBtn.textContent.trim();
+                
+                if (videoSrc) {
+                    // 3. Set the video source, load it, and play it
+                    videoIframe.src = videoSrc;
+                    videoIframe.load(); // Tell the video element to load the new source
+                    videoIframe.play(); 
+
+                    shareButton.classList.add('hidden'); // <-- MODIFIED: Hide share btn on new play
+
+                    // 4. Show the lightbox
+                    videoLightbox.classList.remove('hidden');
+                    videoLightbox.classList.add('flex');
+
+                    // *** NEW: Send Video Page View to Google Analytics ***
+                    if (typeof gtag === 'function') {
+                        const newTitle = videoTitle + ' (Video)';
+                        const newPath = '/video/' + videoSrc; // Create a virtual path
+                        
+                        gtag('event', 'page_view', {
+                            page_title: newTitle,
+                            page_path: newPath,
+                            page_location: window.location.origin + newPath
+                        });
+                    }
+                    // *** END Google Analytics *****
+                }
+                return;
+            }
+
+            const closeBtn = e.target.closest('#close-lightbox-btn');
+            const lightboxBg = e.target.id === 'video-lightbox'; // Check if bg was clicked
+            
+            if (closeBtn || lightboxBg) {
+                e.preventDefault();
+                videoLightbox.classList.add('hidden');
+                videoLightbox.classList.remove('flex');
+
+                // 5. Pause, rewind, and clear the src on close
+                videoIframe.pause();
+                videoIframe.currentTime = 0;
+                videoIframe.src = ""; // Clear the source
+
+                shareButton.classList.add('hidden'); // <-- MODIFIED: Hide share btn on close
+                return;
+            } 
+        });
+
+// --- NEW: Video and Share Button Listeners ---
+
+        // Show share button when video ends
+        videoIframe.addEventListener('ended', () => {
+            shareButton.classList.remove('hidden');
+        });
+
+        // Handle share button click
+        shareButton.addEventListener('click', async () => {
+            // Get the full video source (e.g., "https://.../why-running.mp4")
+            const fullVideoSrc = videoIframe.src;
+            
+            // Get just the filename (e.g., "why-running.mp4")
+            const videoFilename = fullVideoSrc.split('/').pop(); 
+            
+            // Create a key from the filename (e.g., "why-running")
+            const videoKey = videoFilename.replace('.mp4', '');
+            
+            // Look up the specific text using the original filename
+            const shareText = videoShareText[videoFilename] || "Check out this video from Riegan Sage's campaign!";
+            
+            // *** THIS IS THE MAIN FIX ***
+            // Build a shareable URL that points to the home page 
+            // and includes a query parameter for the video.
+            const shareUrl = `${window.location.origin + window.location.pathname + window.location.hash}?video=${videoKey}`;
+
+            const shareData = {
+                title: 'Vote Sage',
+                text: shareText,
+                url: shareUrl // <-- Use the new shareable URL
+            };
+
+            try {
+                // Use Web Share API if available
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    console.log('Video shared successfully');
+                } else {
+                    // Fallback for desktop or unsupported browsers
+                    console.log('Web Share API not supported. Sharing data:', shareData);
+                    alert('Share not supported on this browser. You can copy the link from the address bar!');
+                }
+            } catch (err) {
+                console.error('Error sharing:', err);
+            }
+        });
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', (e) => {
+            const page = e.state ? e.state.page : 'home';
+            loadPage(page);
+        });
+
+        // --- Initial Page Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+        const hash = window.location.hash ? window.location.hash.substring(1) : 'home';
+            
+            // Separate the page from the query string
+            const [page, queryString] = hash.split('?');
+            const initialPage = page || 'home'; // Default to home
+
+            // Define what to do *after* the page loads
+            const loadCallback = () => {
+                // Check if there was a query string
+                if (queryString) {
+                    const params = new URLSearchParams(queryString);
+                    const videoToPlay = params.get('video'); // e.g., "why-running"
+                    
+                    // Only play if we are on the home page and have a video
+                    if (videoToPlay && (initialPage == 'home' || initialPage == 'videos')) {
+                        // The DOM is now guaranteed to be loaded
+                        const videoBtn = document.querySelector(`.video-btn[data-video-src="${videoToPlay}.mp4"]`);
+                           if (videoBtn) {
+                                videoBtn.click(); // Programmatically click the button
+                            }
+                    }
+                }
+            };
+            // Set the initial page history
+           history.replaceState({page: initialPage}, initialPage, `#${initialPage}`);
+            
+            // Load the page AND pass our new callback function to it
+            loadPage(initialPage, loadCallback);
+        });
+
+    </script>
+</body>
+</html>
