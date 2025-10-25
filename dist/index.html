@@ -73,8 +73,27 @@
         .honeypot-field {
             display: none;
         }
+        /* NEW - Responsive Video Container */
+        
+        /* * 1. This new class applies the aspect ratio.
+         * It's on the div that already has h-[70vh].
+         * The browser will see "height is 70vh" and 
+         * "aspect-ratio is 9/16" and automatically
+         * calculate the correct width.
+         */
+        .video-modal {
+            aspect-ratio: 9 / 16;
+        }
+        
+        /* * 2. This tells the video to fill the modal
+         * container perfectly.
+         */
+        .video-modal video {
+            width: 100%;
+            height: 100%;
+        }
 
-/* NEW SVG Icon CSS - Replaces the old icon rules */
+        /* NEW SVG Icon CSS - Replaces the old icon rules */
         .icon-cell-yes::after,
         .icon-cell-no::after {
             content: '';
@@ -192,6 +211,28 @@
     </a>
 </header>
 
+<div id="video-lightbox" class="fixed inset-0 bg-black/80 z-[100] hidden items-center justify-center transition-opacity duration-300 ease-in-out p-4">
+    <div class="relative bg-black h-[70vh] rounded-lg overflow-hidden shadow-2xl video-modal group">
+        <button id="close-lightbox-btn" class="absolute -top-2 -right-2 z-[60] w-10 h-10 bg-white rounded-full flex items-center justify-center text-black text-2xl font-bold leading-none hover:bg-gray-200 transition">&times;</button>
+        
+        <video id="video-iframe"
+               src="" 
+               playsinline 
+               controls
+               class="z-10"> </video>
+
+        <button id="share-btn" 
+                class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 
+                       bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md 
+                       hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105
+                       flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+            </svg>
+            <span>Share</span>
+        </button>
+        </div>
+</div>
     <main id="page-content" class="container mx-auto p-4 md:p-8">
     </main>
     
@@ -206,7 +247,7 @@
         <nav class="container mx-auto hidden md:flex justify-center items-center space-x-4 md:space-x-8">
             <a href="#about" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">About Me</a>
             <a href="#platform" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Platform</a>
-            <a href="#positions" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Positions</a>            
+            <a href="#positions" class="nav-link hover:text-blue-300 transition duration-300 font-medium text-lg uppercase">Positions</a>         
             <a href="#get-involved" class="nav-link bg-purple-800 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition duration-300 font-medium text-lg uppercase">Get Involved</a>
         </nav>
         <div class="md:hidden flex justify-between items-center container mx-auto">
@@ -238,6 +279,34 @@
                         Hi! I'm <span class="font-bold">Riegan Sage</span>, a nominee for <span class="font-bold">At-Large Councilmember</span> in Longmont. 
                         As a city, we need to choose both what is important to us to preserve and how we want to grow. We should build on our strengths, connecting the pieces that are already successful. It is our responsibility to envision and articulate what we want Longmont to be and to collaborate creatively to bring that to fruition. 
                     </p>
+
+                    <div class="mt-6 text-center md:text-left">
+                        <button id="why-running-btn" 
+                                class="video-btn bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                                data-video-src="why-running.mp4">
+                            Why I'm Running
+                        </button>
+                        
+                        <button id="why-purple-btn" 
+                                class="video-btn bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                                data-video-src="why-purple.mp4">
+                            Why My Signs Are Purple
+                        </button>
+                        
+                        <!-- <button id="whats-different-btn" 
+                                class="video-btn bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                                data-video-src="whats-different.mp4">
+                            Why I'm Different
+                        </button> 
+
+                        <button id="great-councilperson-btn" 
+                                class="video-btn bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                                data-video-src="great-councilperson.mp4">
+                            What Makes a Great City Councilperson
+                        </button> -->
+
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -262,7 +331,7 @@
                         I have been serving on the boards of various organizations for over twenty years-- from non-profit theatre companies, to academic institutions, to Homeowners associations. Previously I've run marketing and operations for a global clothing brand, consulted privately with entrepreneurs building businesses and worked in education for over fifteen years.
                     </p>
                     <p class="text-gray-600 mb-4">
-                        I have an MBA from the University of Miami and a BFA from the University of Southern California.                        
+                        I have an MBA from the University of Miami and a BFA from the University of Southern California.                         
                     </p>
                     <p class="text-gray-600 mt-4" id="email-container"></p>
                 </div>
@@ -410,12 +479,6 @@
             <h2 class="text-3xl font-bold text-blue-800 mb-4 text-center">Get Involved</h2>
             <p class="text-gray-600 mb-6 text-center max-w-3xl mx-auto">This campaign is powered by people like you. Check out our upcoming <a href="#events" class="text-purple-800 font-semibold hover:underline">events!</a></p>
 
-            <!-- <div class="text-center mb-8">
-                <a href="#endorsements" class="nav-link text-purple-800 font-semibold hover:underline text-lg">
-                    See who is endorsing the campaign &rarr;
-                </a>
-            </div> -->
-
             <div class="border-b border-gray-200 mb-6">
                 <nav class="-mb-px flex justify-center space-x-6" aria-label="Tabs">
                     <button id="tab-endorsement" class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-purple-800 text-purple-800">
@@ -424,10 +487,7 @@
                     <button id="tab-sign" class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
                         Request a Sign
                     </button>
-                    <!-- <button id="tab-idea" class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                        Share an Idea
-                    </button> -->
-                </nav>
+                    </nav>
             </div>
 
                 <div id="pane-idea" class="tab-pane hidden">
@@ -435,10 +495,6 @@
                     <div class="grid md:grid-cols-2 gap-8 items-center">
                         <div>
                             
-                            <!-- <form action="https://formcarry.com/s/zZeaB_foSML" method="POST">
-                                <div class="mb-4">
-                                    <label for="name" class="block text-gray-700 font-medium mb-1">Full Name</label>
-                                    <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required> -->
                             <form id="idea-form" method="POST">
                             <input type="hidden" name="_subject" value="New Idea Submission!">
                             <input type="hidden" name="_next" value="https://votesage.com/#get-involved?submitted=true"> 
@@ -448,18 +504,14 @@
                                     <input type="text" id="endorse_name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required>
                             </div>
                             <div class="mb-4">
-                                        <label for="email" class="block text-gray-700 font-medium mb-1">Email Address</label>
-                                        <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg" required>
+                                    <label for="email" class="block text-gray-700 font-medium mb-1">Email Address</label>
+                                    <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg" required>
                             </div>
                             <div class="mb-4">
-                                        <label for="message" class="block text-gray-700 font-medium mb-1">Your Idea</label>
-                                        <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
+                                    <label for="message" class="block text-gray-700 font-medium mb-1">Your Idea</label>
+                                    <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
                             </div>
-                                <!-- <div class="honeypot-field">
-                                    <label for="honeypot">Don't fill this out if you're human:</label>
-                                    <input type="text" id="honeypot" name="honeypot">
-                                </div> -->
-                            <button type="submit" class="w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">Submit Idea</button>
+                                <button type="submit" class="w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">Submit Idea</button>
                             </form>
                         </div>
                     
@@ -473,10 +525,6 @@
                     <p class="text-gray-600 mb-8 text-center">Our signs are statement pieces for your yard! Send us your address and we'll deliver one to your doorstep.</p>
                     <div class="grid md:grid-cols-2 gap-8 items-center">
                         <div>
-                            <!-- <form action="https://formcarry.com/s/zZeaB_foSML" method="POST">
-                                <div class="mb-4">
-                                    <label for="name" class="block text-gray-700 font-medium mb-1">Full Name</label>
-                                    <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg" required> -->
                             <form id="sign-form" method="POST">
                             <input type="hidden" name="_subject" value="New Sign Request!">
                             <input type="hidden" name="_next" value="https://votesage.com/#get-involved?submitted=true"> 
@@ -493,11 +541,7 @@
                                     <label for="message" class="block text-gray-700 font-medium mb-1">Any special instructions?</label>
                                     <textarea id="message" name="message" rows="2" class="w-full p-2 border border-gray-300 rounded-lg" required></textarea>
                             </div>
-                                <!-- <div class="honeypot-field">
-                                    <label for="honeypot">Don't fill this out if you're human:</label>
-                                    <input type="text" id="honeypot" name="honeypot">
-                                </div> -->
-                            <button type="submit" class="w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">Request Sign</button>
+                                <button type="submit" class="w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition duration-300">Request Sign</button>
                             </form>
                         </div>
                         <div class="container mx-auto flex items-center justify-center">
@@ -541,7 +585,7 @@
                         </div>
                     </div>
                 </div>
-    
+        
         </div>
     </template>
 
@@ -571,7 +615,13 @@
         const pageContent = document.getElementById('page-content');
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
+        
+        // NEW Lightbox variables
+        const videoLightbox = document.getElementById('video-lightbox');
+        const closeLightboxBtn = document.getElementById('close-lightbox-btn');
+        const videoIframe = document.getElementById('video-iframe');
+        const shareButton = document.getElementById('share-btn'); // <-- NEW
+        
         // Page Content Templates
         const pages = {
             home: document.getElementById('template-home').innerHTML,
@@ -582,6 +632,24 @@
             'get-involved': document.getElementById('template-get-involved').innerHTML,
             endorsements: document.getElementById('template-endorsements').innerHTML,
         };
+
+        // *** NEW: Titles for Google Analytics ***
+        const pageTitles = {
+            home: 'Home',
+            about: 'About Me',
+            platform: 'Platform',
+            positions: 'Positions',
+            events: 'Events',
+            'get-involved': 'Get Involved',
+            endorsements: 'Endorsements'
+        };
+
+        // *** NEW: Video Share Text ***
+        const videoShareText = {
+          'why-running.mp4': "Check out this video on why Riegan Sage is running for Longmont City Council!",
+          'why-purple.mp4': "Ever wonder why Riegan Sage's signs are purple? Watch this!",
+          'great-councilperson.mp4': "What makes a great city councilperson? Riegan Sage shares her thoughts in this video."
+        };
 
         // --- Mobile Menu Toggle ---
         function toggleMenu() {
@@ -641,6 +709,19 @@
                 pageContent.style.animation = 'fadeIn 0.5s ease-in-out';
                 updateActiveLink(page);
                 window.scrollTo(0, 0);
+
+                // *** NEW: Send Page View to Google Analytics ***
+                if (typeof gtag === 'function') {
+                    const newTitle = pageTitles[page] || 'Home';
+                    const newPath = page === 'home' ? window.location.pathname : window.location.pathname + `#${page}`;
+                    
+                    gtag('event', 'page_view', {
+                        page_title: newTitle,
+                        page_path: newPath,
+                        page_location: window.location.origin + newPath
+                    });
+                }
+                // *** END Google Analytics ***
                 
                 // Set up dynamic content after page loads
                 addEmailLink(); 
@@ -732,8 +813,104 @@
                 handleTabClick(tabButton);
                 return;
             }
+
+            // --- *** CHANGED THIS SECTION *** ---
+            
+            // 1. Check for *any* button with the 'video-btn' class
+            const videoBtn = e.target.closest('.video-btn');
+            
+            if (videoBtn) {
+                e.preventDefault();
+                
+                // 2. Get the video source from the button's data attribute
+                const videoSrc = videoBtn.dataset.videoSrc;
+                const videoTitle = videoBtn.textContent.trim();
+                
+                if (videoSrc) {
+                    // 3. Set the video source, load it, and play it
+                    videoIframe.src = videoSrc;
+                    videoIframe.load(); // Tell the video element to load the new source
+                    videoIframe.play(); 
+
+                    shareButton.classList.add('hidden'); // <-- MODIFIED: Hide share btn on new play
+
+                    // 4. Show the lightbox
+                    videoLightbox.classList.remove('hidden');
+                    videoLightbox.classList.add('flex');
+
+                    // *** NEW: Send Video Page View to Google Analytics ***
+                    if (typeof gtag === 'function') {
+                        const newTitle = videoTitle + ' (Video)';
+                        const newPath = '/video/' + videoSrc; // Create a virtual path
+                        
+                        gtag('event', 'page_view', {
+                            page_title: newTitle,
+                            page_path: newPath,
+                            page_location: window.location.origin + newPath
+                        });
+                    }
+                    // *** END Google Analytics *****
+                }
+                return;
+            }
+
+            const closeBtn = e.target.closest('#close-lightbox-btn');
+            const lightboxBg = e.target.id === 'video-lightbox'; // Check if bg was clicked
+            
+            if (closeBtn || lightboxBg) {
+                e.preventDefault();
+                videoLightbox.classList.add('hidden');
+                videoLightbox.classList.remove('flex');
+
+                // 5. Pause, rewind, and clear the src on close
+                videoIframe.pause();
+                videoIframe.currentTime = 0;
+                videoIframe.src = ""; // Clear the source
+
+                shareButton.classList.add('hidden'); // <-- MODIFIED: Hide share btn on close
+                return;
+            } 
         });
 
+// --- NEW: Video and Share Button Listeners ---
+
+        // Show share button when video ends
+        videoIframe.addEventListener('ended', () => {
+            shareButton.classList.remove('hidden');
+        });
+
+        // Handle share button click
+        shareButton.addEventListener('click', async () => {
+            // *** MODIFIED SECTION ***
+                const fullVideoSrc = videoIframe.src;
+                // Get just the filename, e.g., "why-running.mp4"
+                const videoFilename = fullVideoSrc.split('/').pop(); 
+            
+                // Look up the specific text, or use a fallback
+                const shareText = videoShareText[videoFilename] || "Check out this video from Riegan Sage's campaign!";
+            
+                const shareData = {
+                    title: 'Vote Sage',
+                    text: shareText, // <-- Now uses the new dynamic text
+                    // We share the main page URL, not the direct video file
+                    url: window.location.origin + window.location.pathname //
+            };
+
+            try {
+                // Use Web Share API if available
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    console.log('Video shared successfully');
+                } else {
+                    // Fallback for desktop or unsupported browsers
+                    console.log('Web Share API not supported. Sharing data:', shareData);
+                    alert('Share not supported on this browser. You can copy the link from the address bar!');
+                }
+            } catch (err) {
+                console.error('Error sharing:', err);
+            }
+        });
+        
         // Handle browser back/forward buttons
         window.addEventListener('popstate', (e) => {
             const page = e.state ? e.state.page : 'home';
