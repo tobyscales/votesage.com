@@ -12,7 +12,9 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
     
-      gtag('config', 'G-S749PTD4W9');
+      gtag('config', 'G-S749PTD4W9', {
+          'send_page_view': false // This disables the automatic page_view
+      });
     </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -633,6 +635,17 @@
             endorsements: document.getElementById('template-endorsements').innerHTML,
         };
 
+        // *** NEW: Titles for Google Analytics ***
+        const pageTitles = {
+            home: 'Home',
+            about: 'About Me',
+            platform: 'Platform',
+            positions: 'Positions',
+            events: 'Events',
+            'get-involved': 'Get Involved',
+            endorsements: 'Endorsements'
+        };
+
         // --- Mobile Menu Toggle ---
         function toggleMenu() {
             hamburgerBtn.classList.toggle('is-active');
@@ -691,6 +704,19 @@
                 pageContent.style.animation = 'fadeIn 0.5s ease-in-out';
                 updateActiveLink(page);
                 window.scrollTo(0, 0);
+
+                // *** NEW: Send Page View to Google Analytics ***
+                if (typeof gtag === 'function') {
+                    const newTitle = pageTitles[page] || 'Home';
+                    const newPath = page === 'home' ? window.location.pathname : window.location.pathname + `#${page}`;
+                    
+                    gtag('event', 'page_view', {
+                        page_title: newTitle,
+                        page_path: newPath,
+                        page_location: window.location.origin + newPath
+                    });
+                }
+                // *** END Google Analytics ***
                 
                 // Set up dynamic content after page loads
                 addEmailLink(); 
