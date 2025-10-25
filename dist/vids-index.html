@@ -819,6 +819,7 @@
                 
                 // 2. Get the video source from the button's data attribute
                 const videoSrc = videoBtn.dataset.videoSrc;
+                const videoTitle = videoBtn.textContent.trim();
                 
                 if (videoSrc) {
                     // 3. Set the video source, load it, and play it
@@ -831,6 +832,19 @@
                     // 4. Show the lightbox
                     videoLightbox.classList.remove('hidden');
                     videoLightbox.classList.add('flex');
+
+                    **// *** NEW: Send Video Page View to Google Analytics ***
+                    if (typeof gtag === 'function') {
+                        const newTitle = videoTitle + ' (Video)';
+                        const newPath = '/video/' + videoSrc; // Create a virtual path
+                        
+                        gtag('event', 'page_view', {
+                            page_title: newTitle,
+                            page_path: newPath,
+                            page_location: window.location.origin + newPath
+                        });
+                    }
+                    // *** END Google Analytics *****
                 }
                 return;
             }
