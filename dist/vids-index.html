@@ -693,7 +693,7 @@
         }
 
         // --- Routing and Page Loading ---
-        function loadPage(page) {
+        function loadPage(page, callback) {
             pageContent.style.animation = 'fadeOut 0.3s ease-in-out';
             
             setTimeout(() => {
@@ -726,6 +726,11 @@
                 // Set up dynamic content after page loads
                 addEmailLink(); 
                 setupFormActions();
+
+                if (typeof callback === 'function') {
+                    callback();
+                }
+                
             }, 300);
         }
         
@@ -928,32 +933,34 @@
 
         // --- Initial Page Load ---
         document.addEventListener('DOMContentLoaded', () => {
-            const initialPageWithParams = window.location.hash ? window.location.hash.substring(1) : 'home';
-            const initialPage = initialPageWithParams.split('?')[0]; // Ignore URL params
-            history.replaceState({page: initialPage}, initialPage, `#${initialPage}`);
-            loadPage(initialPage);
-            
-            // *** THIS IS THE NEW PART ***
-            // Check if there was a query string
-            if (queryString) {
-                const params = new URLSearchParams(queryString);
-                const videoToPlay = params.get('video'); // e.g., "why-running"
-                
-                if (videoToPlay) {
-                    // We must wait for loadPage's 300ms timeout to finish
-                    setTimeout(() => {
-                        // Only try to play if we're on the home page
-                        if (initialPage === 'home') {
-                            // Find the button by its data attribute
-                            // We add the .mp4 back on to match the data-video-src
-                            const videoBtn = document.querySelector(`.video-btn[data-video-src="${videoToPlay}.mp4"]`);
-                            if (videoBtn) {
+        const hash = window.location.hash ? window.location.hash.substring(1) : 'home';
+            
+            // Separate the page from the query string
+            const [page, queryString] = hash.split('?');
+            const initialPage = page || 'home'; // Default to home
+
+            // Define what to do *after* the page loads
+            const loadCallback = () => {
+                // Check if there was a query string
+                if (queryString) {
+                    const params = new URLSearchParams(queryString);
+                    const videoToPlay = params.get('video'); // e.g., "why-running"
+                    
+                    // Only play if we are on the home page and have a video
+                    if (videoToPlay && initialPage === 'home') {
+                        // The DOM is now guaranteed to be loaded
+                        const videoBtn = document.querySelector(`.video-btn[data-video-src="${videoToPlay}.mp4"]`);
+                           if (videoBtn) {
                                 videoBtn.click(); // Programmatically click the button
                             }
-                        }
-                    }, 400); // 400ms to be safe (after loadPage's 300ms)
+                    }
                 }
-            }
+            };
+            // Set the initial page history
+           history.replaceState({page: initialPage}, initialPage, `#${initialPage}`);
+            
+            // Load the page AND pass our new callback function to it
+            loadPage(initialPage, loadCallback);
         });
 
     </script>
