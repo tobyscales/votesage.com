@@ -981,7 +981,7 @@
                     const videoToPlay = params.get('video'); // e.g., "why-running"
                     
                     // Only play if we are on the home page and have a video
-                    if (videoToPlay) {
+                    if (videoToPlay && (initialPage == 'home' || initialPage == 'videos')) {
                         // The DOM is now guaranteed to be loaded
                         const videoBtn = document.querySelector(`.video-btn[data-video-src="${videoToPlay}.mp4"]`);
                            if (videoBtn) {
