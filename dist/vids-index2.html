@@ -920,7 +920,6 @@
         });
 
         // Handle share button click
-// Handle share button click
         shareButton.addEventListener('click', async () => {
             // Get the full video source (e.g., "https://.../why-running.mp4")
             const fullVideoSrc = videoIframe.src;
@@ -937,7 +936,7 @@
             // *** THIS IS THE MAIN FIX ***
             // Build a shareable URL that points to the home page 
             // and includes a query parameter for the video.
-            const shareUrl = `${window.location.origin + window.location.pathname}#home?video=${videoKey}`;
+            const shareUrl = `${window.location.origin + window.location.pathname + window.location.hash}?video=${videoKey}`;
 
             const shareData = {
                 title: 'Vote Sage',
