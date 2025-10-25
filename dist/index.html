@@ -240,9 +240,10 @@
     
     <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 z-40 hidden flex-col items-center justify-center space-y-8 transition-opacity duration-300">
         <a href="#about" class="nav-link-mobile text-white text-3xl uppercase font-bold">About Me</a>
-                <a href="#platform" class="nav-link-mobile text-white text-3xl uppercase font-bold">Platform</a>
+        <a href="#platform" class="nav-link-mobile text-white text-3xl uppercase font-bold">Platform</a>
         <a href="#positions" class="nav-link-mobile text-white text-3xl uppercase font-bold">Positions</a>
-        <a href="#events" class="nav-link-mobile text-white text-3xl uppercase font-bold">Events</a>
+        <!--<a href="#events" class="nav-link-mobile text-white text-3xl uppercase font-bold">Events</a>-->
+        <a href="#videos" class="nav-link-mobile text-white text-3xl uppercase font-bold">Videos</a>
     </div>
 
     <footer class="bg-gray-800 text-white p-4 z-50 fixed bottom-0 w-full md:static">
@@ -476,6 +477,35 @@
         </div>
     </template>
     
+    <template id="template-videos">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center">Videos</h2>
+            <div class="flex flex-col items-center space-y-4 max-w-md mx-auto">
+                
+                <button class="video-btn w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                        data-video-src="why-running.mp4">
+                    Why I'm Running
+                </button>
+                
+                <button class="video-btn w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                        data-video-src="why-purple.mp4">
+                    Why My Signs Are Purple
+                </button>
+
+                <button class="video-btn w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                        data-video-src="whats-different.mp4">
+                    Why I'm Different
+                </button> 
+
+                <button class="video-btn w-full bg-purple-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105"
+                        data-video-src="great-councilperson.mp4">
+                    What Makes a Great City Councilperson
+                </button>
+
+            </div>
+        </div>
+    </template>
+    
     <template id="template-get-involved">
         <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
             <h2 class="text-3xl font-bold text-blue-800 mb-4 text-center">Get Involved</h2>
@@ -631,6 +661,7 @@
             platform: document.getElementById('template-platform').innerHTML,
             positions: document.getElementById('template-positions').innerHTML,
             events: document.getElementById('template-events').innerHTML,
+            videos: document.getElementById('template-videos').innerHTML, 
             'get-involved': document.getElementById('template-get-involved').innerHTML,
             endorsements: document.getElementById('template-endorsements').innerHTML,
         };
@@ -642,16 +673,18 @@
             platform: 'Platform',
             positions: 'Positions',
             events: 'Events',
+            videos: 'Videos',
             'get-involved': 'Get Involved',
             endorsements: 'Endorsements'
         };
 
         // *** NEW: Video Share Text ***
-        const videoShareText = {
-          'why-running.mp4': "Check out this video on why Riegan Sage is running for Longmont City Council!",
-          'why-purple.mp4': "Ever wonder why Riegan Sage's signs are purple? Watch this!",
-          'great-councilperson.mp4': "What makes a great city councilperson? Riegan Sage shares her thoughts in this video."
-        };
+        const videoShareText = {
+          'why-running.mp4': "Check out this video on why Riegan Sage is running for Longmont City Council!",
+          'why-purple.mp4': "Ever wonder why Riegan Sage's signs are purple? Watch this!",
+          'whats-different.mp4': "Here's what makes Riegan Sage different. (Video)", // <-- ADD THIS
+          'great-councilperson.mp4': "What makes a great city councilperson? Riegan Sage shares her thoughts in this video."
+        };
 
         // --- Mobile Menu Toggle ---
         function toggleMenu() {
@@ -887,7 +920,6 @@
         });
 
         // Handle share button click
-// Handle share button click
         shareButton.addEventListener('click', async () => {
             // Get the full video source (e.g., "https://.../why-running.mp4")
             const fullVideoSrc = videoIframe.src;
@@ -904,7 +936,7 @@
             // *** THIS IS THE MAIN FIX ***
             // Build a shareable URL that points to the home page 
             // and includes a query parameter for the video.
-            const shareUrl = `${window.location.origin + window.location.pathname}#home?video=${videoKey}`;
+            const shareUrl = `${window.location.origin + window.location.pathname + window.location.hash}?video=${videoKey}`;
 
             const shareData = {
                 title: 'Vote Sage',
@@ -949,7 +981,7 @@
                     const videoToPlay = params.get('video'); // e.g., "why-running"
                     
                     // Only play if we are on the home page and have a video
-                    if (videoToPlay && initialPage === 'home') {
+                    if (videoToPlay && (initialPage == 'home' || initialPage == 'videos')) {
                         // The DOM is now guaranteed to be loaded
                         const videoBtn = document.querySelector(`.video-btn[data-video-src="${videoToPlay}.mp4"]`);
                            if (videoBtn) {
